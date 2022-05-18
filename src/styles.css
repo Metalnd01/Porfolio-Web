@@ -1,1 +1,123 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+.seccion {
+    border-radius: 5px;
+    border-color:#bcaaa4;
+    border-style: solid;
+    margin: 25px 50px 25px 50px;
+    padding: 0px 10px;
+}
+
+.seccion-tittle {
+    padding: auto;
+    background: rgb(188,170,164);
+    background: linear-gradient(173deg, rgba(188,170,164,0.8225490879945728) 0%, rgba(255,255,255,1) 61%); 
+}
+
+.skills {
+    background-color:#8c7b75;
+    
+}
+
+.navbar{
+    background-color: transparent;
+}
+
+/*.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+}
+
+.flex-item:nth-child(1) {
+    order: 0;
+    flex: 2 1 auto;
+    align-self: stretch;
+}
+
+.flex-item:nth-child(2) {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: flex-start;
+}
+
+.flex-item:nth-child(3) {
+    order: 0;
+    flex: 0 2 auto;
+    align-self: flex-end;
+}
+
+.imagen_header {
+    display: flex;
+    z-index: 1;
+}
+
+
+
+
+.btn {
+    display: flex;
+    background-color: transparent;
+    border: 2px;
+    border-style: none;
+    border-radius: 40%;
+    border-color: black;
+    align-items: stretch;
+}
+
+.btn:hover{
+    background: #efdcd5;
+}
+
+.btn-edicion {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-self: flex-end;
+    color: black;
+    margin-top: auto;
+    width: 2.4rem;
+    height: 2.4rem;
+}*/
+
+li{
+    list-style: none;
+    margin-top: 2.5em;
+    padding-left: 1em;
+}
+
+.fa,.fa-pencil {
+    display: block;
+    position: relative;
+    align-items: flex-end;
+}
+.fa:hover,.fa-pencil:hover{
+    border-style: solid;
+    border: 2em;    
+}
+.color-primary {
+    background-color: #bcaaa4;
+}
+
+.color-primary-light {
+    background-color: #efdcd5;
+}
+
+.color-primary-dark {
+    background-color: #8c7b75;
+}
+
+.color-secondary {
+    background-color: #90a4ae;
+}
+
+.color-secondary-light {
+    background-color: #c1d5e0;
+}
+
+.color-secondary-dark {
+    background-color: #62757f;
+}

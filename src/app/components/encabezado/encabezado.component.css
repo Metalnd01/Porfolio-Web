@@ -1,0 +1,21 @@
+.hero {
+    background-color: hsla(37, 15%, 41%, 0.1);
+    background-image: url('/src/assets/juampi.jpeg'),
+      url('/src/assets/code_image.jpg');
+    display: flex;
+    flex-wrap: nowrap;
+    background-position: left bottom, center;
+    background-size: 25%, 100%;
+    background-repeat: no-repeat, repeat;
+    max-width: 100%;
+    max-height: 50%;
+    width: 100wh;
+    height: 100vh;
+    display: flex;
+  }
+  
+  .ola {
+    position: relative;
+    max-width: 100%;
+    z-index: 1;
+  }
