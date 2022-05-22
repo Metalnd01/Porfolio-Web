@@ -1,8 +1,32 @@
 footer {
-    text-align: center;
-    justify-items: center;
+  text-align: center;
+  justify-items: center;
+  color: white;
+}
+
+.contenedor {
+  background-color: #8c7b75;
 }
 
 .lenguaje {
   margin: 0.5em;
+}
+
+#linea {
+  border-top: 1px solid black;
+  height: 2px;
+  max-width: 200px;
+  margin: 20px auto 20px auto;
+}
+
+a {
+  color: white;
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 3em;
+  margin-bottom: 5em;
 }

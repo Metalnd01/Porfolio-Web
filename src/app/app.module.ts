@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppComponent } from './app.component';
 
@@ -45,6 +46,7 @@ import { InterceptorService } from './servicios/interceptor.service';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({}),
     
   ],
   providers: [PorfolioService, {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true},],

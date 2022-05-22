@@ -1,27 +1,6 @@
-* {box-sizing:border-box}
-
-.container {
-  width: 100%;
-  background-color: #ddd; 
-  padding-left: 0%;
-  padding-right: 0%;
+div {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  align-items: center;
 }
 
-
-.skills {
-  text-align: right; 
-  padding-top: 10px; 
-  padding-right: 15px;
-  padding-bottom: 10px;
-  color: white; 
-}
-
-p {
-  text-align: center;
-}
-
-.html {width: 90%; background-color: #04AA6D;} 
-.css {width: 80%; background-color: #2196F3;}
-.js {width: 65%; background-color: #f44336;} 
-.trEq {width: 86%; background-color: #808080;} 
-.compromiso {width: 100%; background-color: cadetblue;}
