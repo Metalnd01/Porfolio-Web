@@ -1,0 +1,43 @@
+.navbar {
+    opacity: 0.90;
+}
+
+#LogoInti {
+  width: 20rem;
+}
+
+
+li{
+  margin-top: 0;
+}
+
+.iconos_redes{
+    display: flex;
+    margin: 5px 0px; 
+    color:white; 
+    size: 10px;
+    text-align: center;
+}
+
+.iconos_redes:hover {
+  color: black;
+}
+
+.btn-login{
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  margin-top: 0.15em;
+  margin-right: 0.55em;
+  border-style: none;
+}
+
+.btn-login:hover{
+  background-color:bisque;
+  border-radius: 10%;
+}
+
+.container-fluid {
+  align-items: center;
+}

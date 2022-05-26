@@ -1,0 +1,87 @@
+
+
+.seccion {
+    border-radius: 5px;
+    border-color:#bcaaa4;
+    border-style: solid;
+    margin: 2.5em 5em 2.5em 5em;
+    padding: 0px 10px;
+    background-color: rgba(250, 235, 215, 0.192);
+}
+
+.seccion-tittle {
+    padding: auto;
+    background: rgb(188,170,164);
+    background: linear-gradient(173deg, rgba(188,170,164,0.8225490879945728) 0%, rgba(255,255,255,1) 61%); 
+}
+
+.skills {
+    background-color:#8c7b75;
+    
+}
+
+.navbar{
+    background-color: transparent;
+}
+
+.btn-edicion {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-self: flex-end;
+    color: black;
+    margin-top: auto;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+p {
+    text-align: center;
+}
+
+span {
+    text-align: center;
+}
+
+
+li{
+    text-align: center;
+    list-style: none;
+    margin-top: 2.5em;
+    padding-left: 1em;
+    border-style: none;
+}
+
+.fa,.fa-pencil {
+    display: block;
+    position: relative;
+    align-items: flex-end;
+}
+.fa:hover,.fa-pencil:hover{
+    border-style: solid;
+    border: 2em;    
+}
+
+.color-primary {
+    background-color: #bcaaa4;
+}
+
+.color-primary-light {
+    background-color: #efdcd5;
+}
+
+.color-primary-dark {
+    background-color: #8c7b75;
+}
+
+.color-secondary {
+    background-color: #90a4ae;
+}
+
+.color-secondary-light {
+    background-color: #c1d5e0;
+}
+
+.color-secondary-dark {
+    background-color: #62757f;
+}
