@@ -3,8 +3,6 @@ package com.porfolio.wkm.Interface;
 import com.porfolio.wkm.Entity.Persona;
 import java.util.List;
 
-
-
 public interface IPersonaService {
     
     //listado de personas

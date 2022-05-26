@@ -23,28 +23,29 @@ public class PersonaController {
      return ipersonaService.getPersona();
     }
     
-    @PostMapping("personas/crear")
+    @PostMapping("persona/crear")
     public String createPersona(@RequestBody Persona persona){
         ipersonaService.savePersona(persona);
         return "La persona fue creada correctamente.";
     }
     
-    @DeleteMapping("/personas/borrar/{id}")
+    @DeleteMapping("/persona/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         ipersonaService.deletePersona(id);
         return "La persona fue borrada correctamente.";
     }
     
-    @PutMapping("/personas/editar/{id}")
+    @PutMapping("/persona/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
-                                @RequestParam("nombre") String nuevoNombre,
-                                @RequestParam("apellido") String nuevoApellido,
-                                @RequestParam("img") String nuevoImg){
+                                @RequestParam("nombreProyecto") String nuevoFullName,
+                                @RequestParam("descripcion") String nuevoTitulo,
+                                @RequestParam("url_img_proyecto") String nuevoFoto_Perfil){
+        
         Persona persona = ipersonaService.findPersona(id);
         
-        persona.setNombre(nuevoNombre);
-        persona.setApellido(nuevoApellido);
-        persona.setImg(nuevoImg);
+        persona.setFullname(nuevoFullName);
+        persona.setTitulo(nuevoTitulo);
+        persona.setFoto_perfil(nuevoFoto_Perfil);
         
         ipersonaService.savePersona(persona);
         return persona;
