@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { graficos } from 'src/app/model/graficos.model';
+import { GraficosService } from 'src/app/servicios/graficos.service';
 
 @Component({
   selector: 'app-graficos',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraficosComponent implements OnInit {
 
-  constructor() { }
+  graficos: graficos = new graficos("", 0);
+
+  constructor(public graficosService: GraficosService) { }
 
   ngOnInit(): void {
+    this.graficosService.getGraficos().subscribe(data => this.graficos = data);
   }
 
 }

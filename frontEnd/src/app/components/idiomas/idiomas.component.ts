@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { idiomas } from 'src/app/model/idiomas.model';
+import { IdiomasService } from 'src/app/servicios/idiomas.service';
 
 @Component({
   selector: 'app-idiomas',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdiomasComponent implements OnInit {
 
-  constructor() { }
+  idiomas: idiomas = new idiomas("", "", "", "");
+
+  constructor(public idiomasService: IdiomasService) { }
 
   ngOnInit(): void {
+    this.idiomasService.getIdiomas().subscribe(data => this.idiomas = data);
   }
 
 }

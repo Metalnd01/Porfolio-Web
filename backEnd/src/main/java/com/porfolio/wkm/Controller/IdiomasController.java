@@ -45,6 +45,7 @@ public class IdiomasController {
         Idiomas idiomas = iidiomasService.findIdiomas(id);
         
         idiomas.setUrl_img_institucion(nuevoUrl_img_institucion);
+        idiomas.setNombreIdioma(nuevoNombreIdioma);
         idiomas.setEntreAnios(nuevoEntreAnios);
         idiomas.setDescripcion(nuevoDescripcion);
         

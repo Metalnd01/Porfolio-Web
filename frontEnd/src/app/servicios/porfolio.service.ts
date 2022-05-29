@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PorfolioService {
 
-  url:string = 'http:npinti.ddns.net:9008/api/';
+  url:string = 'http:localhost:8080/porfolio/';
   constructor(private http:HttpClient) { }
 
   obtenerDatos ():Observable<any> {
