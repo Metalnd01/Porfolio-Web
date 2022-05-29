@@ -37,17 +37,17 @@ public class EducacionController {
     
     @PutMapping("/educacion/editar/{id}")
     public Educacion editEducacion(@PathVariable Long id,
-                                @RequestParam("url_img_institucion") String nuevoUrl_img_institucion,
-                                @RequestParam("nombreInstitucion") String nuevoNombreInstitucion,
-                                @RequestParam("entreAnios") String nuevoEntreAnios,
-                                @RequestParam("descripcion") String nuevoDescripcion){
+                                @RequestParam("imagenEdu") String nuevoImagenEdu,
+                                @RequestParam("nombreEdu") String nuevoTituloEdu,
+                                @RequestParam("entreAniosEdu") String nuevoEntreAniosEdu,
+                                @RequestParam("descripcionEdu") String nuevoDescripcionEdu){
         
         Educacion educacion = ieducacionService.findEducacion(id);
         
-        educacion.setUrl_img_institucion(nuevoUrl_img_institucion);
-        educacion.setNombreInstitucion(nuevoNombreInstitucion);
-        educacion.setEntreAnios(nuevoEntreAnios);
-        educacion.setDescripcion(nuevoDescripcion);
+        educacion.setImagenEdu(nuevoImagenEdu);
+        educacion.setTituloEdu(nuevoTituloEdu);
+        educacion.setEntreAniosEdu(nuevoEntreAniosEdu);
+        educacion.setDescripcionEdu(nuevoDescripcionEdu);
         
         ieducacionService.saveEducacion(educacion);
         return educacion;

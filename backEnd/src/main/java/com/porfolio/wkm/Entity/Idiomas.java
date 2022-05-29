@@ -14,19 +14,24 @@ import lombok.Setter;
 public class Idiomas {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idIdioma;
     
-    @Size(min = 0, max = 200, message = "no cumple con la longitud requerida")
-    private String url_img_institucion;
-    
-    @Size(min = 0, max = 100, message = "no cumple con la longitud requerida")
+    private String imagenIdioma;
     private String nombreIdioma;
+    private String entreAniosIdioma;
+    private String descripcionIdioma;
+
+    public Idiomas() {
+    }
+
+    public Idiomas(Long idIdioma, String imagenIdioma, String nombreIdioma, String entreAniosIdioma, String descripcionIdioma) {
+        this.idIdioma = idIdioma;
+        this.imagenIdioma = imagenIdioma;
+        this.nombreIdioma = nombreIdioma;
+        this.entreAniosIdioma = entreAniosIdioma;
+        this.descripcionIdioma = descripcionIdioma;
+    }
     
-    @Size(min = 0, max = 50, message = "no cumple con la longitud requerida")
-    private String entreAnios;
-    
-    @Size(min = 0, max = 250, message = "no cumple con la longitud requerida")
-    private String descripcion;
     
 }

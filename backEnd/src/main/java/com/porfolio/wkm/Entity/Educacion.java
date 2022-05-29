@@ -14,19 +14,26 @@ import lombok.Setter;
 public class Educacion {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idEdu;
     
-    @Size(min = 0, max = 200, message = "no cumple con la longitud requerida")
-    private String url_img_institucion;
+    private String imagenEdu;
+    private String tituloEdu;
+    private String entreAniosEdu;
+    private String descripcionEdu;
+
+    public Educacion() {
+    }
+
+    public Educacion(Long idEdu, String imagenEdu, String tituloEdu, String entreAniosEdu, String descripcionEdu) {
+        this.idEdu = idEdu;
+        this.imagenEdu = imagenEdu;
+        this.tituloEdu = tituloEdu;
+        this.entreAniosEdu = entreAniosEdu;
+        this.descripcionEdu = descripcionEdu;
+    }
+
     
-    @Size(min = 0, max = 100, message = "no cumple con la longitud requerida")
-    private String nombreInstitucion;
-    
-    @Size(min = 0, max = 50, message = "no cumple con la longitud requerida")
-    private String entreAnios;
-    
-    @Size(min = 0, max = 250, message = "no cumple con la longitud requerida")
-    private String descripcion;
+
     
 }

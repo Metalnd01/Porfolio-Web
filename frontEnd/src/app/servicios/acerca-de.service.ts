@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AcercaDeService {
 
-  URL = 'http://localhost:8080/acercade/';
+  URL = 'http://localhost:8080/porfolio/acercade/';
 
   constructor(private http: HttpClient) { }
 

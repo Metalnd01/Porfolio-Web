@@ -6,10 +6,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './components/login/login.component';
-import { PorfolioComponent } from './components/porfolio/porfolio.component';
+import { persona } from './model/persona.model';
 
 const routes: Routes = [
-  {path: "porfolio", component:PorfolioComponent},
+  /*{path: "persona", component:PersonaComponent},*/
   {path: "login", component: LoginComponent},
   {path: "", redirectTo:"/porfolio", pathMatch:"full"},
 ];

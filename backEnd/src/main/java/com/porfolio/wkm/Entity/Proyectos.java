@@ -14,17 +14,22 @@ import lombok.Setter;
 public class Proyectos {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idProy;
     
-    @Size(min = 0, max = 200, message = "no cumple con la longitud requerida")
-    private String url_img_proyecto;
-    
-    @Size(min = 0, max = 100, message = "no cumple con la longitud requerida")
-    private String nombreProyecto;
-    
-    @Size(min = 0, max = 250, message = "no cumple con la longitud requerida")
-    private String descripcion;
+    private String imagenProy;
+    private String tituloProy;
+    private String descripcionProy;
+
+    public Proyectos() {
+    }
+
+    public Proyectos(Long idProy, String imagenProy, String tituloProy, String descripcionProy) {
+        this.idProy = idProy;
+        this.imagenProy = imagenProy;
+        this.tituloProy = tituloProy;
+        this.descripcionProy = descripcionProy;
+    }
     
     
 }

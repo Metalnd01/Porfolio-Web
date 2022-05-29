@@ -14,11 +14,18 @@ import lombok.Setter;
 public class AcercaDe {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idAcerca;
     
-    @NotNull
-    @Size(min = 1, max = 200, message = "no cumple con la longitud requerida")
     private String acercaDe;
+
+    public AcercaDe() {
+    }
+
+    public AcercaDe(Long idAcerca, String acercaDe) {
+        this.idAcerca = idAcerca;
+        this.acercaDe = acercaDe;
+    }
+
     
 }

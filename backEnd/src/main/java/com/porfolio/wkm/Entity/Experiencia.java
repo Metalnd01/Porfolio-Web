@@ -15,20 +15,28 @@ import lombok.Setter;
 public class Experiencia {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idExp;
     
-    @Size(min = 0, max = 200, message = "no cumple con la longitud requerida")
-    private String url_img_empresa;
+    private String tituloExp;
+    private String entreAniosExp;
+    private String descripcionExp;
+    private String imagenExp;
+
+    public Experiencia() {
+    }
+
+    public Experiencia(Long idExp, String tituloExp, String entreAniosExp, String descripcionExp, String imagenExp) {
+        this.idExp = idExp;
+        this.tituloExp = tituloExp;
+        this.entreAniosExp = entreAniosExp;
+        this.descripcionExp = descripcionExp;
+        this.imagenExp = imagenExp;
+    }
+
     
-    @Size(min = 0, max = 100, message = "no cumple con la longitud requerida")
-    private String nombreEmpresa;
+
     
-    @Size(min = 0, max = 50, message = "no cumple con la longitud requerida")
-    private String entreAnios;
-    
-    @Size(min = 0, max = 250, message = "no cumple con la longitud requerida")
-    private String descripcion;
     
     
 }
