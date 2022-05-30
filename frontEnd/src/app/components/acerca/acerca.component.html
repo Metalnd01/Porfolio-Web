@@ -1,12 +1,126 @@
 <div class="card mat-card seccion" id="acerca">
     <div class="row color-primary-dark">
         <h3 class="col-11 p-3">Acerca de mí</h3>
-        <a href="#sumar" class="col-1 btn-edicion "><i class="fa-solid fa-plus"></i></a>
-        <a href="#edit" class="col-1 btn-edicion "><i class="fa-solid fa-pencil"></i></a>
+        <button type="button" class="col-1 btn-edicion text-center float-end" ><a (click)="onOpenModal('add')" class="nav-link">
+          <i class="fa-solid fa-plus">
+          <span class="sr-only"></span></i></a>
+        </button>
+        
     </div>
-    <div class="row">
+    <div class="row" *ngFor="let acerca of acercaDe">
       <div class="col-xs-12 col-12 p-4 m-1">
-        <p>{{acercaDe.acercaDe}}</p>
+        <p>{{acerca.acercaDe}}</p>
+      </div>
+      <div class="col text-center">
+        <a (click)="onOpenModal('edit', acerca)" 
+          class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
+          data-toggle="tooltip" data-original-title="Edit">
+          <i class="fa-solid fa-pencil"></i></a>
+        <a (click)="onOpenModal('delete', acerca)" 
+          class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
+          data-toggle="tooltip" data-original-title="Delete">
+          <i class="fa-solid fa-circle-xmark"></i></a>
       </div>
     </div>
+
 </div>
+
+ <!--Boton Agregar-->
+  <div class="modal fade" id="addAcercaDeModal" tabindex="-1" role="dialog" aria-labelledby="addAcercaDeModalLabel"
+              aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addAcercaDeModalLabel">Agregar </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true"> &times</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddAcercaDe(addForm)">
+            
+            <div class="form-group">
+              <label for="acercaDe">Descripción</label>
+              <input type="text" ngModel name="acercaDe" class="form-control" id="acercaDe" placeholder="Breve descripción" required>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" id="add-acercaDe-form" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--Boton Modificar-->
+  <div class="modal fade" id="editAcercaDeModal" tabindex="-1" role="dialog" aria-labelledby="editAcercaDeModalLabel"
+              aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editAcercaDeModalLabel">Editar acercaDe {{editAcercaDe?.acercaDe}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true"> &times</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm" >
+    
+            <div class="form-group">
+              <label for="acercaDe">Acerca de...</label>
+              <input type="text" ngModel="{{editAcercaDe?.acercaDe}}" name="acercaDe" class="form-control" id="acercaDe" placeholder="Breve descripción" required>
+              <input type="hidden" ngModel="{{editAcercaDe?.idAcerca}}" name="idAcerca" class="form-control" id="idAcerca" placeholder="">
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button (click)="onUpdateAcercaDe(editForm.value)" data-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <!--Borrar entrada-->
+  <div class="modal fade" id="deleteAcercaDeModal" tabindex="-1" role="dialog" aria-labelledby="deleteAcercaDeModalLabel"
+              aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteAcercaDeModalLabel">Borrar  {{deleteAcercaDe?.acercaDe}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true"> &times</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>
+              ¿Seguro quiere borrar la entrada? {{deleteAcercaDe?.acercaDe}}
+            </p>
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteAcercaDe(1)" data-dismiss="modal" class="btn btn-danger">Borrar</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div *ngIf="acercaDe?.length == 0" class="col-lg-6">
+    <div class="col-6 text-center alert alert-info" role="alert">
+      <h3>Sin datos</h3>
+      <p>No hay datos cargados...</p>
+    </div>
+  </div>

@@ -1,8 +1,5 @@
-export class acercaDe {
-    id?: number;
+export interface acercaDe {
+    idAcerca: number;
     acercaDe: String;
 
-    constructor(acercaDe: String){
-        this.acercaDe = acercaDe;
-    }
 }

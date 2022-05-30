@@ -6,21 +6,33 @@ import com.porfolio.wkm.Repository.IAcercaDeRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ImpAcercaDeService implements IAcercaDeService {
     
-    @Autowired IAcercaDeRepository iacercaDeRepository;
+    
+    private final IAcercaDeRepository iacercaDeRepository;
 
+    @Autowired 
+    public ImpAcercaDeService(IAcercaDeRepository iacercaDeRepository) {
+        this.iacercaDeRepository = iacercaDeRepository;
+    }
+    
     @Override
     public AcercaDe findAcercaDe(Long id) {
         AcercaDe acercaDe = iacercaDeRepository.findById(id).orElse(null);
         return acercaDe;
     }
 
-    @Override
-    public void saveAcercaDe(AcercaDe acercaDe) {
-        iacercaDeRepository.save(acercaDe);
+
+    public AcercaDe addAcercaDe(AcercaDe acercaDe) {
+        return iacercaDeRepository.save(acercaDe);
+    }
+    
+    public AcercaDe editAcercaDe(AcercaDe acercaDe) {
+        return iacercaDeRepository.save(acercaDe);
     }
 
     @Override
@@ -30,8 +42,7 @@ public class ImpAcercaDeService implements IAcercaDeService {
 
     @Override
     public List<AcercaDe> getAcercaDe() {
-        List<AcercaDe> acercaDe = iacercaDeRepository.findAll();
-        return acercaDe;
+        return iacercaDeRepository.findAll();
     }
     
 }

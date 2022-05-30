@@ -9,11 +9,11 @@ public interface IGraficosService {
     public List<Graficos> getGraficos ();
     
     //agregar una persona
-    public void saveGraficos(Graficos graficos);
+    public Graficos saveGraficos(Graficos graficos);
     
     //eliminar una persona por ID
-    public void deleteGraficos(Long id);
+    public void deleteGraficos(Long idSkill);
     
     //buscar persona por ID
-    public Graficos findGraficos(Long id);
+    public Graficos findGraficos(Long idSkill);
 }

@@ -1,13 +1,7 @@
-export class graficos {
+export interface graficos {
 
-    id?: Number;
-    nombre_skill: String;
-    porcentaje: number;
+    idSkill: number;
+    nombreSkill: String;
+    porcentajeSkill: number;
 
-    constructor(nombre_skill: String, porcentaje: number){
-
-        this.nombre_skill = nombre_skill;
-        this.porcentaje = porcentaje;
-        
-    }
 }

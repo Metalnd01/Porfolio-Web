@@ -18,7 +18,9 @@
   border-radius: 50%;
 }*/
 
-
+.btn-edicion {
+  color: black;
+}
 
 .row {
     border-radius: 5px;

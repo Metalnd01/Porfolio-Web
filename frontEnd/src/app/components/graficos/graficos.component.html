@@ -1,9 +1,13 @@
 <div class="row">
+  <button type="button" class="col-1 btn-edicion text-center float-end" ><a (click)="onOpenModal('add')" class="nav-link">
+    <i class="fa-solid fa-plus">
+    <span class="sr-only"></span></i></a>
+  </button>
   <div class="col-md-1 col-lg-1 m-3"></div>
-  <div class="col-sm-12 col-md-3 col-lg-3 text-center">
-    <h3>{{graficos.nombre_skill}}</h3>
+  <div class="col-sm-12 col-md-3 col-lg-3 text-center" *ngFor="let grafico of graficos">
+    <h3>{{grafico.nombreSkill}}</h3>
     <circle-progress
-        [percent]="graficos.porcentaje"
+        [percent]="10"
         [radius]="100"
         [outerStrokeWidth]="10"
         [innerStrokeWidth]="2"
@@ -14,8 +18,124 @@
         [animation]="true"
         [animationDuration]="1000"
     ></circle-progress>
+    
+    <div class="col text-center">
+      <a (click)="onOpenModal('edit', grafico)" 
+        class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
+        data-toggle="tooltip" data-original-title="Edit">
+        <i class="fa-solid fa-pencil"></i></a>
+      <a (click)="onOpenModal('delete', grafico)" 
+        class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
+        data-toggle="tooltip" data-original-title="Delete">
+        <i class="fa-solid fa-circle-xmark"></i></a>
+    </div>
   </div>
-  
+
+   <!--Boton Agregar-->
+  <div class="modal fade" id="addGraficosModal" tabindex="-1" role="dialog" aria-labelledby="addGraficosModalLabel"
+              aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addGraficosModalLabel">Agregar Skill</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true"> &times</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddGraficos(addForm)">
+            <div class="form-group">
+              <label for="nombreSkill">Skill</label>
+              <input type="text" ngModel name="nombreSkill" class="form-control" id="nombreSkill" placeholder="nombreSkill" required>
+            </div>
+            <div class="form-group">
+              <label for="porcentajeSkill">Porcentaje</label>
+              <input type="text" ngModel name="porcentajeSkill" class="form-control" id="porcentajeSkill" placeholder="Porcentaje alcanzado" required>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" id="add-graficos-form" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--Boton Modificar-->
+  <div class="modal fade" id="editGraficosModal" tabindex="-1" role="dialog" aria-labelledby="editGraficosModalLabel"
+              aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editGraficosModalLabel">Editar Skill {{editGraficos?.nombreSkill}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true"> &times</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm" >
+            <div class="form-group">
+              <label for="nombreSkill">Título</label>
+              <input type="text" ngModel = "{{editGraficos?.nombreSkill}}" name="nombreSkill" class="form-control" id="nombreSkill" placeholder="Skill" required>
+              <input type="hidden" ngModel="{{editGraficos?.idSkill}}" name="idSkill" class="form-control" id="idSkill" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="porcentajeSkill">Porcentaje</label>
+              <input type="text" ngModel="{{editGraficos?.porcentajeSkill}}" name="porcentajeSkill" class="form-control" id="porcentajeSkill" placeholder=""> required>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button (click)="onUpdateGraficos(editForm.value)" data-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <!--Borrar entrada-->
+  <div class="modal fade" id="deleteGraficosModal" tabindex="-1" role="dialog" aria-labelledby="deleteGraficosModalLabel"
+              aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteGraficosModalLabel">Borrar Skill {{deleteGraficos?.nombreSkill}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">
+            <span aria-hidden="true"> &times</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>
+              ¿Seguro quiere borrar la entrada? {{deleteGraficos?.nombreSkill}}
+            </p>
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteGraficos(deleteGraficos!.idSkill)" data-dismiss="modal" class="btn btn-danger">Borrar</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div *ngIf="graficos?.length == 0" class="col-lg-6">
+    <div class="col-6 text-center alert alert-info" role="alert">
+      <h3>Sin datos</h3>
+      <p>No hay datos cargados...</p>
+    </div>
+  </div>
   
 
 </div>

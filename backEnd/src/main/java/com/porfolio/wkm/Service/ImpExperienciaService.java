@@ -6,21 +6,30 @@ import com.porfolio.wkm.Repository.IExperienciaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ImpExperienciaService implements IExperienciaService {
 
-    @Autowired IExperienciaRepository iexperienciaRepository;
+    private final IExperienciaRepository iexperienciaRepository;
+
+    @Autowired
+    public ImpExperienciaService(IExperienciaRepository iexperienciaRepository) {
+        this.iexperienciaRepository = iexperienciaRepository;
+    }
     
     @Override
     public List<Experiencia> getExperiencia() {
-        List<Experiencia> experiencia = iexperienciaRepository.findAll();
-        return experiencia;
+        return iexperienciaRepository.findAll();
     }
 
-    @Override
-    public void saveExperiencia(Experiencia experiencia) {
-        iexperienciaRepository.save(experiencia);
+    public Experiencia addExperiencia(Experiencia experiencia) {
+        return iexperienciaRepository.save(experiencia);
+    }
+    
+    public Experiencia editExperiencia(Experiencia experiencia) {
+        return iexperienciaRepository.save(experiencia);
     }
 
     @Override
@@ -28,10 +37,4 @@ public class ImpExperienciaService implements IExperienciaService {
         iexperienciaRepository.deleteById(id);
     }
 
-    @Override
-    public Experiencia findExperiencia(Long id) {
-        Experiencia experiencia = iexperienciaRepository.findById(id).orElse(null);
-        return experiencia;
-    }
-    
 }

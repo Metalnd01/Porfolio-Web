@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
 
-  url="http://npinti.ddns.net:9008/api/auth/login";
+  private apiServerUrl = environment.apiBaseUrl;
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http:HttpClient) { 
 
@@ -17,7 +18,7 @@ export class AutenticacionService {
   }
 
   IniciarSesion(credenciales:any):Observable<any> {
-    return this.http.post(this.url, credenciales).pipe(map(data=>
+    return this.http.post(`${this.apiServerUrl}`, credenciales).pipe(map(data=>
       {
         sessionStorage.setItem('currentUser', JSON.stringify(data));
         this.currentUserSubject.next(data);

@@ -1,12 +1,8 @@
-export class persona {
-    id?: number;
-    fullname: String;
+export interface persona {
+    id: number;
+    nombre: String;
+    apellido: String;
     titulo: String;
-    foto_perfil: String;
+    fotoPerfil: String;
 
-    constructor(fullname: String, titulo: String, foto_perfil: String) {
-        this.fullname = fullname;
-        this.titulo = titulo;
-        this.foto_perfil = foto_perfil;
-    }
 }

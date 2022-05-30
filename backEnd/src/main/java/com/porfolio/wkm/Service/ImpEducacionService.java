@@ -6,32 +6,37 @@ import com.porfolio.wkm.Repository.IEducacionRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ImpEducacionService implements IEducacionService {
 
-    @Autowired IEducacionRepository ieducacionRepository;
+    private final IEducacionRepository ieducacionRepository;
+
+    @Autowired
+    public ImpEducacionService(IEducacionRepository ieducacionRepository) {
+        this.ieducacionRepository = ieducacionRepository;
+    }
+    
     
     @Override
     public List<Educacion> getEducacion() {
-        List<Educacion> educacion = ieducacionRepository.findAll();
-        return educacion;
+        return ieducacionRepository.findAll();
+    }
+
+    public Educacion addEducacion(Educacion educacion) {
+        return ieducacionRepository.save(educacion);
     }
 
     @Override
-    public void saveEducacion(Educacion educacion) {
-        ieducacionRepository.save(educacion);
+    public void deleteEducacion(Long idEdu) {
+        ieducacionRepository.deleteById(idEdu);
     }
 
-    @Override
-    public void deleteEducacion(Long id) {
-        ieducacionRepository.deleteById(id);
+    public Educacion editEducacion(Educacion educacion){
+        return ieducacionRepository.save(educacion);
     }
 
-    @Override
-    public Educacion findEducacion(Long id) {
-        Educacion educacion = ieducacionRepository.findById(id).orElse(null);
-        return educacion;
-    }
     
 }

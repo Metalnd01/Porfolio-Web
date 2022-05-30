@@ -9,7 +9,7 @@ public interface IPersonaService {
     public List<Persona> getPersona ();
     
     //agregar una persona
-    public void savePersona(Persona persona);
+    public Persona savePersona(Persona persona);
     
     //eliminar una persona por ID
     public void deletePersona(Long id);

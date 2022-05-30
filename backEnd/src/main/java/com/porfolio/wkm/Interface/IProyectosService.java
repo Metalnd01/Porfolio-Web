@@ -9,12 +9,12 @@ public interface IProyectosService {
     public List<Proyectos> getProyectos ();
     
     //agregar un Proyecto
-    public void saveProyectos(Proyectos proyectos);
+    public Proyectos saveProyectos(Proyectos proyectos);
     
     //eliminar un Proyectos por ID
-    public void deleteProyectos(Long id);
+    public void deleteProyectos(Long idProy);
     
     //buscar Proyectos por ID
-    public Proyectos findProyectos(Long id);
+    public Proyectos findProyectos(Long idProy);
     
 }

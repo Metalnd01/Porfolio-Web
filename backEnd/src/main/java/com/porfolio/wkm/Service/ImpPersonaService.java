@@ -3,35 +3,40 @@ package com.porfolio.wkm.Service;
 import com.porfolio.wkm.Entity.Persona;
 import com.porfolio.wkm.Interface.IPersonaService;
 import com.porfolio.wkm.Repository.IPersonaRepository;
+import com.porfolio.wkm.exception.UserNotFoundException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ImpPersonaService implements IPersonaService {
+@Transactional
+public class ImpPersonaService  {
     
-    @Autowired IPersonaRepository ipersonaRepository;
+    private final IPersonaRepository ipersonaRepository;
 
-    @Override
+    @Autowired
+    public ImpPersonaService(IPersonaRepository ipersonaRepository) {
+        this.ipersonaRepository = ipersonaRepository;
+    }
+    
     public List<Persona> getPersona() {
-        List<Persona> persona = ipersonaRepository.findAll();
-        return persona;
+        return ipersonaRepository.findAll();
     }
 
-    @Override
-    public void savePersona(Persona persona) {
-        ipersonaRepository.save(persona);
+    public Persona addPersona(Persona persona) {
+        return ipersonaRepository.save(persona);
     }
 
-    @Override
     public void deletePersona(Long id) {
         ipersonaRepository.deleteById(id);
     }
 
-    @Override
-    public Persona findPersona(Long id) {
-        Persona persona = ipersonaRepository.findById(id).orElse(null);
-        return persona;
+    public Persona editPersona(Persona persona) {
+        return ipersonaRepository.save(persona);
     }
     
+    public Persona buscarPersonaPorId(Long id){
+        return ipersonaRepository.findById(id).orElseThrow(() ->new UserNotFoundException("usuario no encontrado"));
+    }
 }

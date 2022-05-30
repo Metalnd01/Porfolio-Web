@@ -6,20 +6,25 @@ import com.porfolio.wkm.Repository.IIdiomasRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ImpIdiomasService implements IIdiomasService {
     
-    @Autowired IIdiomasRepository iidiomasRepository;
+    private final IIdiomasRepository iidiomasRepository;
 
+    @Autowired
+    public ImpIdiomasService(IIdiomasRepository iidiomasRepository) {
+        this.iidiomasRepository = iidiomasRepository;
+    }
+    
     @Override
     public List<Idiomas> getIdiomas() {
-        List<Idiomas> idiomas = iidiomasRepository.findAll();
-        return idiomas;
+        return iidiomasRepository.findAll();
     }
 
-    @Override
-    public void saveIdiomas(Idiomas idiomas) {
+    public void addIdiomas(Idiomas idiomas) {
         iidiomasRepository.save(idiomas);
     }
 
@@ -28,10 +33,7 @@ public class ImpIdiomasService implements IIdiomasService {
         iidiomasRepository.deleteById(id);
     }
 
-    @Override
-    public Idiomas findIdiomas(Long id) {
-        Idiomas idiomas = iidiomasRepository.findById(id).orElse(null);
-        return idiomas;
+    public void editIdiomas(Idiomas idiomas) {
+        iidiomasRepository.save(idiomas);
     }
-    
 }

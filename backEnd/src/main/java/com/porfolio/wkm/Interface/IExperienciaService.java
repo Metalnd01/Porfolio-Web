@@ -9,12 +9,12 @@ public interface IExperienciaService {
     public List<Experiencia> getExperiencia ();
     
     //agregar una Experiencia
-    public void saveExperiencia(Experiencia experiencia);
+    public Experiencia saveExperiencia(Experiencia experiencia);
     
     //eliminar una Experiencia laboral por ID
-    public void deleteExperiencia(Long id);
+    public void deleteExperiencia(Long idExp);
     
     //buscar Experiencia por ID
-    public Experiencia findExperiencia(Long id);
+    public Experiencia findExperiencia(Long idExp);
     
 }

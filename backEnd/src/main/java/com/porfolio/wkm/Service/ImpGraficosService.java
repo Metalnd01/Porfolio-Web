@@ -6,32 +6,35 @@ import com.porfolio.wkm.Repository.IGraficosRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ImpGraficosService implements IGraficosService {
     
-    @Autowired IGraficosRepository igraficosRepository;
+    private final IGraficosRepository igraficosRepository;
 
+    @Autowired
+    public ImpGraficosService(IGraficosRepository igraficosRepository) {
+        this.igraficosRepository = igraficosRepository;
+    }
+    
     @Override
     public List<Graficos> getGraficos() {
-        List<Graficos> graficos = igraficosRepository.findAll();
-        return graficos;
+        return igraficosRepository.findAll();
     }
 
-    @Override
-    public void saveGraficos(Graficos graficos) {
-        igraficosRepository.save(graficos);
+    public Graficos addGraficos(Graficos graficos) {
+       return igraficosRepository.save(graficos);
     }
 
     @Override
     public void deleteGraficos(Long id) {
         igraficosRepository.deleteById(id);
     }
-
-    @Override
-    public Graficos findGraficos(Long id) {
-        Graficos graficos = igraficosRepository.findById(id).orElse(null);
-        return graficos;
-    }
     
+    public Graficos editGraficos(Graficos graficos){
+        return igraficosRepository.save(graficos);
+    }
+
 }

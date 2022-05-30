@@ -9,7 +9,7 @@ public interface IIdiomasService {
     public List<Idiomas> getIdiomas ();
     
     //agregar un idioma
-    public void saveIdiomas(Idiomas idiomas);
+    public Idiomas saveIdiomas(Idiomas idiomas);
     
     //eliminar un idioma por ID
     public void deleteIdiomas(Long id);

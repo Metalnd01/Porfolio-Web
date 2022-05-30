@@ -4,52 +4,49 @@ import com.porfolio.wkm.Entity.Idiomas;
 import com.porfolio.wkm.Interface.IIdiomasService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/idiomas")
 public class IdiomasController {
     
-    @Autowired IIdiomasService iidiomasService;
-    
-    @GetMapping("idiomas/traer")
-    public List<Idiomas> getIdiomas(){
-     return iidiomasService.getIdiomas();
+    private final IIdiomasService iidiomasService;
+
+    public IdiomasController(IIdiomasService iidiomasService) {
+        this.iidiomasService = iidiomasService;
     }
     
-    @PostMapping("idiomas/crear")
-    public String createIdiomas(@RequestBody Idiomas idiomas){
-        iidiomasService.saveIdiomas(idiomas);
-        return "Campo creado correctamente.";
+    @GetMapping("/all")
+    public ResponseEntity<List<Idiomas>> obtenerIdiomas() {
+        List<Idiomas> idiomas = iidiomasService.getIdiomas();
+        return new ResponseEntity<>(idiomas, HttpStatus.OK);
+    }
+            
+    @PutMapping("/update")
+    public ResponseEntity<Idiomas> editarIdiomas(@RequestBody Idiomas idiomas) {
+        Idiomas updateIdiomas = iidiomasService.saveIdiomas(idiomas);
+        return new ResponseEntity<>(updateIdiomas, HttpStatus.OK);
     }
     
-    @DeleteMapping("/idiomas/borrar/{id}")
-    public String deleteIdiomas(@PathVariable Long id){
-        iidiomasService.deleteIdiomas(id);
-        return "Campo borrado correctamente.";
+    @PostMapping("/add")
+    public ResponseEntity<Idiomas> crearIdiomas(@RequestBody Idiomas idiomas) {
+        Idiomas nuevaIdiomas = iidiomasService.saveIdiomas(idiomas);
+        return new ResponseEntity<>(nuevaIdiomas, HttpStatus.CREATED);
     }
     
-    @PutMapping("/idiomas/editar/{id}")
-    public Idiomas editIdiomas(@PathVariable Long id,
-                                @RequestParam("url_img_institucion") String nuevoUrl_img_institucion,
-                                @RequestParam("nombreIdioma") String nuevoNombreIdioma,
-                                @RequestParam("entreAnios") String nuevoEntreAnios,
-                                @RequestParam("descripcion") String nuevoDescripcion){
-        
-        Idiomas idiomas = iidiomasService.findIdiomas(id);
-        
-        idiomas.setUrl_img_institucion(nuevoUrl_img_institucion);
-        idiomas.setNombreIdioma(nuevoNombreIdioma);
-        idiomas.setEntreAnios(nuevoEntreAnios);
-        idiomas.setDescripcion(nuevoDescripcion);
-        
-        iidiomasService.saveIdiomas(idiomas);
-        return idiomas;
+    @DeleteMapping("/delete/{idIdioma}")
+    public ResponseEntity<?> borrarIdiomas(@PathVariable("idIdioma") Long idIdioma){
+        iidiomasService.deleteIdiomas(idIdioma);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

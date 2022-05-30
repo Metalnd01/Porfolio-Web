@@ -6,20 +6,25 @@ import com.porfolio.wkm.Repository.IProyectosRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ImpProyectosService implements IProyectosService {
 
-    @Autowired IProyectosRepository iproyectosRepository;
+    private final IProyectosRepository iproyectosRepository;
+
+    @Autowired
+    public ImpProyectosService(IProyectosRepository iproyectosRepository) {
+        this.iproyectosRepository = iproyectosRepository;
+    }
     
     @Override
     public List<Proyectos> getProyectos() {
-        List<Proyectos> proyectos = iproyectosRepository.findAll();
-        return proyectos;
+        return iproyectosRepository.findAll();
     }
 
-    @Override
-    public void saveProyectos(Proyectos proyectos) {
+    public void addProyectos(Proyectos proyectos) {
         iproyectosRepository.save(proyectos);
     }
 
@@ -28,10 +33,8 @@ public class ImpProyectosService implements IProyectosService {
         iproyectosRepository.deleteById(id);
     }
 
-    @Override
-    public Proyectos findProyectos(Long id) {
-        Proyectos proyectos = iproyectosRepository.findById(id).orElse(null);
-        return proyectos;
+    public void editProyectos(Proyectos proyectos) {
+        iproyectosRepository.save(proyectos);
     }
     
 }

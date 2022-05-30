@@ -9,11 +9,11 @@ public interface IEducacionService {
     public List<Educacion> getEducacion ();
     
     //agregar un item a la lista
-    public void saveEducacion(Educacion educacion);
+    public Educacion saveEducacion(Educacion educacion);
     
     //eliminar un item por ID
-    public void deleteEducacion(Long id);
+    public void deleteEducacion(Long idEdu);
     
     //buscar item por ID
-    public Educacion findEducacion(Long id);
+    public Educacion findEducacion(Long idEdu);
 }

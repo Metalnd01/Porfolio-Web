@@ -1,17 +1,9 @@
-export class idiomas {
+export interface idiomas {
 
-    id?: Number;
-    url_img_institucion: String;
+    idIdioma: number;
+    imagenIdioma: String;
     nombreIdioma: String;
-    entreAnios: String;
-    descripcion: String;
+    entreAniosIdioma: String;
+    descripcionIdioma: String;
 
-    constructor(url_img_institucion: String, nombreIdioma: String, 
-                entreAnios: String, descripcion: String){
-
-        this.url_img_institucion = url_img_institucion;
-        this.nombreIdioma = nombreIdioma;
-        this.entreAnios = entreAnios;
-        this.descripcion = descripcion;
-    }
 }
