@@ -12,9 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ImpExperienciaService implements IExperienciaService {
 
-    private final IExperienciaRepository iexperienciaRepository;
+    @Autowired IExperienciaRepository iexperienciaRepository;
 
-    @Autowired
     public ImpExperienciaService(IExperienciaRepository iexperienciaRepository) {
         this.iexperienciaRepository = iexperienciaRepository;
     }
@@ -24,10 +23,6 @@ public class ImpExperienciaService implements IExperienciaService {
         return iexperienciaRepository.findAll();
     }
 
-    public Experiencia addExperiencia(Experiencia experiencia) {
-        return iexperienciaRepository.save(experiencia);
-    }
-    
     public Experiencia editExperiencia(Experiencia experiencia) {
         return iexperienciaRepository.save(experiencia);
     }
@@ -35,6 +30,16 @@ public class ImpExperienciaService implements IExperienciaService {
     @Override
     public void deleteExperiencia(Long id) {
         iexperienciaRepository.deleteById(id);
+    }
+
+    @Override
+    public Experiencia saveExperiencia(Experiencia experiencia) {
+        return iexperienciaRepository.save(experiencia);
+    }
+
+    @Override
+    public Experiencia findExperiencia(Long idExp) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

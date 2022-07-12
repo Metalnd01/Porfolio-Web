@@ -2,9 +2,7 @@ com\porfolio\wkm\Controller\EducacionController.class
 com\porfolio\wkm\Service\ImpGraficosService.class
 com\porfolio\wkm\WkmApplication.class
 com\porfolio\wkm\Repository\IProyectosRepository.class
-com\porfolio\wkm\Repository\IUsuarioRepository.class
 com\porfolio\wkm\Entity\Proyectos.class
-com\porfolio\wkm\Entity\Usuario.class
 com\porfolio\wkm\Controller\PersonaController.class
 com\porfolio\wkm\Entity\Experiencia.class
 com\porfolio\wkm\Controller\ProyectosController.class
@@ -16,7 +14,6 @@ com\porfolio\wkm\Controller\AcercaDeController.class
 com\porfolio\wkm\Entity\Educacion.class
 com\porfolio\wkm\Repository\IAcercaDeRepository.class
 com\porfolio\wkm\Entity\Idiomas.class
-com\porfolio\wkm\Service\ImpUsuarioService.class
 com\porfolio\wkm\Entity\AcercaDe.class
 com\porfolio\wkm\Service\ImpEducacionService.class
 com\porfolio\wkm\Service\ImpExperienciaService.class
@@ -32,10 +29,9 @@ com\porfolio\wkm\Controller\GraficosController.class
 com\porfolio\wkm\Repository\IIdiomasRepository.class
 com\porfolio\wkm\Entity\Graficos.class
 com\porfolio\wkm\Repository\IGraficosRepository.class
-com\porfolio\wkm\Controller\UsuarioController.class
 com\porfolio\wkm\Entity\Persona.class
 com\porfolio\wkm\Interface\IGraficosService.class
 com\porfolio\wkm\Controller\ExperienciaController.class
 com\porfolio\wkm\Service\ImpAcercaDeService.class
-com\porfolio\wkm\Interface\IUsuarioService.class
+com\porfolio\wkm\exception\UserNotFoundException.class
 com\porfolio\wkm\Repository\IEducacionRepository.class

@@ -2,7 +2,9 @@ package com.porfolio.wkm.Interface;
 
 import com.porfolio.wkm.Entity.Persona;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface IPersonaService {
     
     //listado de personas

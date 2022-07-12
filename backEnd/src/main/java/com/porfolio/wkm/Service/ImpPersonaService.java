@@ -11,32 +11,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class ImpPersonaService  {
+public class ImpPersonaService implements IPersonaService  {
     
-    private final IPersonaRepository ipersonaRepository;
-
-    @Autowired
+    @Autowired IPersonaRepository ipersonaRepository;
+    
+    
     public ImpPersonaService(IPersonaRepository ipersonaRepository) {
         this.ipersonaRepository = ipersonaRepository;
     }
     
+    @Override
     public List<Persona> getPersona() {
-        return ipersonaRepository.findAll();
+        List<Persona> persona = ipersonaRepository.findAll();
+        return persona;
     }
 
-    public Persona addPersona(Persona persona) {
+    @Override
+    public Persona savePersona(Persona persona) {
         return ipersonaRepository.save(persona);
     }
 
+    @Override
     public void deletePersona(Long id) {
         ipersonaRepository.deleteById(id);
     }
 
-    public Persona editPersona(Persona persona) {
-        return ipersonaRepository.save(persona);
-    }
+    //public Persona editPersona(Persona persona) {
+    //    return ipersonaRepository.save(persona);
+    //}
     
-    public Persona buscarPersonaPorId(Long id){
-        return ipersonaRepository.findById(id).orElseThrow(() ->new UserNotFoundException("usuario no encontrado"));
+    @Override
+    public Persona findPersona(Long id){
+        Persona persona = ipersonaRepository.findById(id).orElseThrow(() ->new UserNotFoundException("usuario no encontrado"));
+        return persona;
     }
 }

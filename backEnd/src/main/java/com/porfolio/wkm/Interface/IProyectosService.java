@@ -2,7 +2,9 @@ package com.porfolio.wkm.Interface;
 
 import com.porfolio.wkm.Entity.Proyectos;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface IProyectosService {
     
     //listado de Proyectos

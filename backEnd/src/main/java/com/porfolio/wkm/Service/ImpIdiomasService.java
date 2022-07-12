@@ -12,9 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ImpIdiomasService implements IIdiomasService {
     
-    private final IIdiomasRepository iidiomasRepository;
+    @Autowired IIdiomasRepository iidiomasRepository;
 
-    @Autowired
     public ImpIdiomasService(IIdiomasRepository iidiomasRepository) {
         this.iidiomasRepository = iidiomasRepository;
     }
@@ -24,8 +23,9 @@ public class ImpIdiomasService implements IIdiomasService {
         return iidiomasRepository.findAll();
     }
 
-    public void addIdiomas(Idiomas idiomas) {
-        iidiomasRepository.save(idiomas);
+    @Override
+    public Idiomas saveIdiomas(Idiomas idiomas) {
+        return iidiomasRepository.save(idiomas);
     }
 
     @Override
@@ -35,5 +35,11 @@ public class ImpIdiomasService implements IIdiomasService {
 
     public void editIdiomas(Idiomas idiomas) {
         iidiomasRepository.save(idiomas);
+    }
+
+    @Override
+    public Idiomas findIdiomas(Long idIdioma) {
+        Idiomas idiomas = iidiomasRepository.findById(idIdioma).orElse(null);
+        return idiomas;
     }
 }

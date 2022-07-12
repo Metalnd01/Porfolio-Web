@@ -2,9 +2,8 @@
     <div class="row color-primary-dark">
       <h3 class="col-11 p-3">Idiomas</h3>
       
-      <button type="button" class="col-1 btn-edicion text-center float-end" ><a (click)="onOpenModal('add')" class="nav-link">
-        <i class="fa-solid fa-plus">
-        <span class="sr-only"></span></i></a>
+      <button type="button" class="btn btn-primary text-center col-1 float-end" data-bs-toggle="modal" data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
+        <i class="fa-solid fa-plus"></i>
       </button>
     </div>
     <div class="row" *ngFor="let idioma of idiomas">
@@ -20,11 +19,11 @@
       <div class="col text-center">
         <a (click)="onOpenModal('edit', idioma)" 
           class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
-          data-toggle="tooltip" data-original-title="Edit">
+          data-bs-toggle="modal" data-bs-target="#editIdiomasModal" data-original-title="Edit">
           <i class="fa-solid fa-pencil"></i></a>
         <a (click)="onOpenModal('delete', idioma)" 
           class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
-          data-toggle="tooltip" data-original-title="Delete">
+          data-bs-toggle="modal" data-bs-target="#deleteIdiomasModal" data-original-title="Delete">
           <i class="fa-solid fa-circle-xmark"></i></a>
       </div>
     </div>
@@ -38,9 +37,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="addIdiomasModalLabel">Agregar Idiomas</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true"> &times</span>
-          </button>
         </div>
         <div class="modal-body">
           <form #addForm="ngForm" (ngSubmit)="onAddIdiomas(addForm)">
@@ -61,8 +57,8 @@
               <input type="text" ngModel name="entreAniosIdioma" class="form-control" id="entreAniosIdioma" placeholder="Entre años" required>
             </div>
             <div class="modal-footer">
-              <button type="button" id="add-idioma-form" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Guardar</button>
+              <button type="button" id="add-idioma-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
             </div>
           </form>
         </div>
@@ -79,9 +75,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="editIdiomasModalLabel">Editar Proyecto {{editIdiomas?.nombreIdioma}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true"> &times</span>
-          </button>
         </div>
         <div class="modal-body">
           <form #editForm="ngForm" >
@@ -102,11 +95,11 @@
               <label for="entreAniosIdioma">Años</label>
               <input type="text" ngModel="{{editIdiomas?.entreAniosIdioma}}" name="entreAniosIdioma" class="form-control" id="entreAniosIdioma" placeholder="Entre años" required>
             </div>
-            <div class="modal-footer">
-              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button (click)="onUpdateIdiomas(editForm.value)" data-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
-            </div>
           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button (click)="onUpdateIdiomas(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
         </div>
       </div>
 
@@ -123,17 +116,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteIdiomasModalLabel">Borrar Idioma {{deleteIdiomas?.nombreIdioma}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true"> &times</span>
-          </button>
         </div>
         <div class="modal-body">
             <p>
               ¿Seguro quiere borrar la entrada? {{deleteIdiomas?.nombreIdioma}}
             </p>
             <div class="modal-footer">
-              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">No</button>
-              <button (click)="onDeleteIdiomas(deleteIdiomas!.idIdioma)" data-dismiss="modal" class="btn btn-danger">Borrar</button>
+              <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button (click)="onDeleteIdiomas(deleteIdiomas!.idIdioma)" data-bs-dismiss="modal" class="btn btn-danger">Borrar</button>
             </div>
         </div>
       </div>

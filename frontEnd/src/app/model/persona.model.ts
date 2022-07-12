@@ -1,8 +1,8 @@
 export interface persona {
     id: number;
-    nombre: String;
-    apellido: String;
+    foto_perfil: String;
+    fullname: String;
     titulo: String;
-    fotoPerfil: String;
+    
 
 }

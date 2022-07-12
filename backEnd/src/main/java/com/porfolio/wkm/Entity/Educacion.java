@@ -1,5 +1,6 @@
 package com.porfolio.wkm.Entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Educacion {
+public class Educacion implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

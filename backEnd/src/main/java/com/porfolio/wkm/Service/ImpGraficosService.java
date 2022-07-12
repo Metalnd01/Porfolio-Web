@@ -12,9 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ImpGraficosService implements IGraficosService {
     
-    private final IGraficosRepository igraficosRepository;
+    @Autowired IGraficosRepository igraficosRepository;
 
-    @Autowired
     public ImpGraficosService(IGraficosRepository igraficosRepository) {
         this.igraficosRepository = igraficosRepository;
     }
@@ -24,10 +23,6 @@ public class ImpGraficosService implements IGraficosService {
         return igraficosRepository.findAll();
     }
 
-    public Graficos addGraficos(Graficos graficos) {
-       return igraficosRepository.save(graficos);
-    }
-
     @Override
     public void deleteGraficos(Long id) {
         igraficosRepository.deleteById(id);
@@ -35,6 +30,16 @@ public class ImpGraficosService implements IGraficosService {
     
     public Graficos editGraficos(Graficos graficos){
         return igraficosRepository.save(graficos);
+    }
+
+    @Override
+    public Graficos saveGraficos(Graficos graficos) {
+        return igraficosRepository.save(graficos);
+    }
+
+    @Override
+    public Graficos findGraficos(Long idSkill) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

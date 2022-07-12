@@ -1,3 +1,4 @@
+C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\exception\UserNotFoundException.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Interface\IPersonaService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Controller\AcercaDeController.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Interface\IExperienciaService.java
@@ -7,16 +8,13 @@ C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\ba
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Entity\Graficos.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Interface\IGraficosService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Interface\IIdiomasService.java
-C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Interface\IUsuarioService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Controller\ExperienciaController.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Service\ImpProyectosService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Entity\Idiomas.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Controller\GraficosController.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Entity\AcercaDe.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Controller\PersonaController.java
-C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Controller\UsuarioController.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Repository\IExperienciaRepository.java
-C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Entity\Usuario.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Service\ImpEducacionService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Service\ImpIdiomasService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Service\ImpAcercaDeService.java
@@ -37,5 +35,3 @@ C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\ba
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Controller\ProyectosController.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Service\ImpGraficosService.java
 C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Repository\IGraficosRepository.java
-C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Repository\IUsuarioRepository.java
-C:\Users\willi\Documents\Porfolio-Argentina-Programa-v2\porfolio-Arg-Programa\backEnd\src\main\java\com\porfolio\wkm\Service\ImpUsuarioService.java

@@ -12,8 +12,8 @@ public interface IIdiomasService {
     public Idiomas saveIdiomas(Idiomas idiomas);
     
     //eliminar un idioma por ID
-    public void deleteIdiomas(Long id);
+    public void deleteIdiomas(Long idIdioma);
     
     //buscar idioma por ID
-    public Idiomas findIdiomas(Long id);
+    public Idiomas findIdiomas(Long idIdioma);
 }

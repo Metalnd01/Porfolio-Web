@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { proyectos } from 'src/app/model/proyectos.model';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
+import { Modal } from 'bootstrap';
+import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-proyectos',
@@ -14,6 +16,7 @@ export class ProyectosComponent implements OnInit {
   public proyectos:proyectos[] = [];
   public editProyectos:proyectos | undefined;
   public deleteProyectos:proyectos | undefined;
+  public testModal:Modal | undefined;
 
   constructor(private proyectosService: ProyectosService){}
 
@@ -34,7 +37,12 @@ export class ProyectosComponent implements OnInit {
   
 
   public onOpenModal(mode:String, proyectos?: proyectos):void {
-    const container = document.getElementById('main-container');
+    let el_testModal = document.getElementById('testModal');
+    if (el_testModal) {
+      this.testModal=new Modal(el_testModal, {
+        keyboard: false
+      });
+      this.testModal?.show();}
     const button = document.createElement('button');
     button.style.display = 'none';
     button.setAttribute('data-toggle', 'modal');
@@ -48,7 +56,7 @@ export class ProyectosComponent implements OnInit {
       button.setAttribute('data-target', '#editProyectosModal');
     }
 
-    container?.appendChild(button);
+    el_testModal?.appendChild(button);
     button.click();
   }
   

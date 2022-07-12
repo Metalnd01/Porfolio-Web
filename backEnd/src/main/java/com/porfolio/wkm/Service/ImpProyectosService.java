@@ -4,6 +4,7 @@ import com.porfolio.wkm.Entity.Proyectos;
 import com.porfolio.wkm.Interface.IProyectosService;
 import com.porfolio.wkm.Repository.IProyectosRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,29 +13,33 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ImpProyectosService implements IProyectosService {
 
-    private final IProyectosRepository iproyectosRepository;
+    @Autowired IProyectosRepository iproyectosRepository;
 
-    @Autowired
+    
     public ImpProyectosService(IProyectosRepository iproyectosRepository) {
         this.iproyectosRepository = iproyectosRepository;
     }
     
     @Override
     public List<Proyectos> getProyectos() {
-        return iproyectosRepository.findAll();
-    }
-
-    public void addProyectos(Proyectos proyectos) {
-        iproyectosRepository.save(proyectos);
+        List<Proyectos> proyectos = iproyectosRepository.findAll();
+        return proyectos;
     }
 
     @Override
-    public void deleteProyectos(Long id) {
-        iproyectosRepository.deleteById(id);
+    public Proyectos saveProyectos(Proyectos proyectos) {
+        return iproyectosRepository.save(proyectos);
     }
 
-    public void editProyectos(Proyectos proyectos) {
-        iproyectosRepository.save(proyectos);
+    @Override
+    public void deleteProyectos(Long idProy) {
+        iproyectosRepository.deleteById(idProy);
+    }
+
+    @Override
+    public Proyectos findProyectos(Long idProy) {
+        Proyectos proyectos = iproyectosRepository.findById(idProy).orElse(null);
+        return proyectos;
     }
     
 }

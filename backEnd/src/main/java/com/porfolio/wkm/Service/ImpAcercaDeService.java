@@ -13,24 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class ImpAcercaDeService implements IAcercaDeService {
     
     
-    private final IAcercaDeRepository iacercaDeRepository;
-
-    @Autowired 
+    @Autowired IAcercaDeRepository iacercaDeRepository;
+     
     public ImpAcercaDeService(IAcercaDeRepository iacercaDeRepository) {
         this.iacercaDeRepository = iacercaDeRepository;
     }
-    
-    @Override
-    public AcercaDe findAcercaDe(Long id) {
-        AcercaDe acercaDe = iacercaDeRepository.findById(id).orElse(null);
-        return acercaDe;
-    }
 
-
-    public AcercaDe addAcercaDe(AcercaDe acercaDe) {
-        return iacercaDeRepository.save(acercaDe);
-    }
-    
     public AcercaDe editAcercaDe(AcercaDe acercaDe) {
         return iacercaDeRepository.save(acercaDe);
     }
@@ -43,6 +31,17 @@ public class ImpAcercaDeService implements IAcercaDeService {
     @Override
     public List<AcercaDe> getAcercaDe() {
         return iacercaDeRepository.findAll();
+    }
+
+    @Override
+    public AcercaDe saveAcercaDe(AcercaDe acercaDe) {
+        return iacercaDeRepository.save(acercaDe);
+    }
+
+    @Override
+    public AcercaDe findAcercaDe(Long idAcerca) {
+        AcercaDe acercaDe = iacercaDeRepository.findById(idAcerca).orElse(null);
+        return acercaDe;
     }
     
 }

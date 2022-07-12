@@ -1,48 +1,38 @@
 <div class="container-flex">
     
-    <div class="row container-fuid">
-      <div class="col-12 img-fluid">
-        <img src="../../../assets/pexels-pixabay-270348.jpg" alt="banner" id="banner">
-      </div>
-      <div class="ola ">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#8c7b75" fill-opacity="1" d="M0,224L80,224C160,224,320,224,480,186.7C640,149,800,75,960,53.3C1120,32,1280,64,1360,80L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
-      </div>
+  <div class="row container-fuid">
+    <div class="col-12 img-fluid">
+      <img src="../../../assets/pexels-pixabay-270348.jpg" alt="banner" id="banner">
     </div>
+    <div class="ola ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#8c7b75" fill-opacity="1" d="M0,224L80,224C160,224,320,224,480,186.7C640,149,800,75,960,53.3C1120,32,1280,64,1360,80L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+    </div>
+  </div>
 
-    <div class="row container-fluid" *ngIf="persona">
-      <div class="col-xs-11 col-sm-2 col-md-2" >
-        <!--<img [src]="miPorfolio.img" alt="" class="img-fluid"> -->
-        <img src="{{persona.fotoPerfil}}" alt="" class="" id="foto_perfil">
-        
-        <!-- <a href="#edit" class="col-1 btn-edicion float-end" id="pencil_foto_perfil"><i class="fa-solid fa-pencil flex-item"></i></a> -->
+  <div class="row container-fluid" *ngIf="persona">
+    <div class="col-xs-11 col-sm-2 col-md-2" >
+      <img src={{persona.foto_perfil}} alt="" class="" id="foto_perfil">
+      <!--<button type="button" (click)="onOpenModal('add')" class="col-1 btn-edicion float-end" id="pencil_foto_perfil"><i class="fa-solid fa-pencil flex-item"></i></button> -->
+    </div>
+    <div class="row p-3 m-3">
+      <div class="col-xs-12 col-6 flex-item" >
+        <h1 class="text-left flex-item" id="nombre">{{persona.fullname}}</h1> 
       </div>
-
       <div class="row p-3 m-3">
-        <div class="col-xs-12 col-6 flex-item" >
-          <h1 class="text-left flex-item" id="nombre">{{persona.nombre}} {{persona.apellido}}</h1> 
-        </div>
-
-        <div class="row p-3 m-3">
-          <div class="col-xs-8 col-6 text-left flex-item " >
-            <h2>{{persona.titulo}}</h2>
-            <button type="button" class="col-1 btn-edicion text-center float-end" ><a (click)="onOpenModal('add')" class="nav-link">
-              <i class="fa-solid fa-plus">
-              <span class="sr-only"></span></i></a>
+        <div class="col-xs-8 col-6 text-left flex-item " >
+          <h2>{{persona.titulo}}</h2>
+          <div class="col text-center">
+            <button (click)="onOpenModal('edit', persona)" 
+              class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
+              data-bs-toggle="modal" data-bs-target="#editPersonaModal" data-original-title="Edit">
+              <i class="fa-solid fa-pencil"></i>
             </button>
-            <div class="col text-center">
-              <a (click)="onOpenModal('edit', persona)" 
-                class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
-                data-toggle="tooltip" data-original-title="Edit">
-                <i class="fa-solid fa-pencil"></i></a>
-              
-            </div>
           </div>
         </div>
-        
       </div>
     </div>
-
-  </div> 
+  </div>
+</div> 
 
   <!--Boton Modificar-->
   <div class="modal fade" id="editPersonaModal" tabindex="-1" role="dialog" aria-labelledby="editPersonaModalLabel"
@@ -52,40 +42,30 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="editPersonaModalLabel">Editar Persona</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="close">
-            <span aria-hidden="true"> &times</span>
-          </button>
         </div>
         <div class="modal-body">
           <form #editForm="ngForm" >
             <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" ngModel = "{{editPersona?.nombre}}" name="nombre" class="form-control" id="nombre" placeholder="nombre" required>
+              <label for="fullname">Nombre Completo</label>
+              <input type="text" ngModel = "{{editPersona?.fullname}}" name="fullname" class="form-control" id="fullname" placeholder="Nombre Completo" required>
               <input type="hidden" ngModel="{{editPersona?.id}}" name="id" class="form-control" id="id" placeholder="">
             </div>
             <div class="form-group">
-              <label for="apellido">Apellido</label>
-              <input type="text" ngModel="{{editPersona?.apellido}}" name="apellido" class="form-control" id="apellido" placeholder="apellido" required>
-            </div>
-            <div class="form-group">
-              <label for="fotoPerfil">Imagen</label>
-              <input type="text" ngModel="{{editPersona?.fotoPerfil}}" name="fotoPerfil" class="form-control" id="fotoPerfil" placeholder="Url de imagen" required>
+              <label for="foto_perfil">Imagen</label>
+              <input type="text" ngModel="{{editPersona?.foto_perfil}}" name="foto_perfil" class="form-control" id="fotoPerfil" placeholder="Url de imagen" required>
             </div>
             <div class="form-group">
               <label for="titulo">titulo</label>
               <input type="text" ngModel="{{editPersona?.titulo}}" name="titulo" class="form-control" id="titulo" placeholder="titulo" required>
             </div>
             <div class="modal-footer">
-              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button (click)="onUpdatePersona(editForm.value)" data-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
+              <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button (click)="onUpdatePersona(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
             </div>
           </form>
         </div>
       </div>
-
     </div>
-
-
   </div>
 
   <div *ngIf="persona?.id == 0" class="col-lg-6">

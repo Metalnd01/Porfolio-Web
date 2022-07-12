@@ -10,7 +10,6 @@ import { PersonaService } from 'src/app/servicios/persona.service';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-  
   public persona: persona | undefined;
   public editPersona:persona | undefined;
   public deletePersona:persona | undefined;
@@ -61,13 +60,7 @@ export class EncabezadoComponent implements OnInit {
         },
         error:(error:HttpErrorResponse) => {
           alert(error.message);
-        }
-      }
-    )
+        },
+    })
   }
-
-  
-
 }
-
-

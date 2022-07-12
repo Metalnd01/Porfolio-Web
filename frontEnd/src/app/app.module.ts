@@ -42,7 +42,15 @@ import { MenuComponent } from './components/menu/menu.component';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    NgCircleProgressModule.forRoot({}),
+    NgCircleProgressModule.forRoot({
+      //set defaults here
+      radius: 100,
+      outerStrokeWidth: 10,
+      innerStrokeWidth: 2,
+      outerStrokeColor: "#8c7b75",
+      innerStrokeColor: "#bcaaa4", 
+      animationDuration: 300
+    }),
     
   ],
   providers: [],

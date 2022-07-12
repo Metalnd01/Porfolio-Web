@@ -12,21 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ImpEducacionService implements IEducacionService {
 
-    private final IEducacionRepository ieducacionRepository;
+    @Autowired IEducacionRepository ieducacionRepository;
 
-    @Autowired
     public ImpEducacionService(IEducacionRepository ieducacionRepository) {
         this.ieducacionRepository = ieducacionRepository;
     }
     
-    
     @Override
     public List<Educacion> getEducacion() {
         return ieducacionRepository.findAll();
-    }
-
-    public Educacion addEducacion(Educacion educacion) {
-        return ieducacionRepository.save(educacion);
     }
 
     @Override
@@ -38,5 +32,14 @@ public class ImpEducacionService implements IEducacionService {
         return ieducacionRepository.save(educacion);
     }
 
+    @Override
+    public Educacion saveEducacion(Educacion educacion) {
+        return ieducacionRepository.save(educacion);
+    }
+
+    @Override
+    public Educacion findEducacion(Long idEdu) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
