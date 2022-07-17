@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { acercaDe } from 'src/app/model/acercaDe.model';
 import { AcercaDeService } from 'src/app/servicios/acerca-de.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 
 @Component({
@@ -17,10 +18,17 @@ export class AcercaComponent implements OnInit {
   public editAcercaDe:acercaDe | undefined;
   public deleteAcercaDe:acercaDe | undefined;
 
-  constructor(private acercaDeService: AcercaDeService){}
+  constructor(private acercaDeService: AcercaDeService, private tokenService:TokenService){}
+
+  isLogged = false;
 
   ngOnInit(): void {
     this.getAcercaDe();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
   public getAcercaDe():void{

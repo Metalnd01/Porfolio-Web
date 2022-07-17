@@ -19,6 +19,8 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EncabezadoComponent } from './components/encabezado/encabezado.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { interceptorProvider } from './servicios/interceptor-service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MenuComponent } from './components/menu/menu.component';
     EncabezadoComponent,
     MenuComponent,
     AppComponent,
+    HomeComponent,
   ],
   imports: [  
     BrowserModule,
@@ -53,7 +56,9 @@ import { MenuComponent } from './components/menu/menu.component';
     }),
     
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

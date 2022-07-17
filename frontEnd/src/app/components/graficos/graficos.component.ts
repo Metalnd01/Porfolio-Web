@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { graficos } from 'src/app/model/graficos.model';
 import { GraficosService } from 'src/app/servicios/graficos.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-graficos',
@@ -16,10 +17,17 @@ export class GraficosComponent implements OnInit {
   public editGraficos:graficos | undefined;
   public deleteGraficos:graficos | undefined;
 
-  constructor(private graficosService: GraficosService){}
+  constructor(private graficosService: GraficosService, private tokenService: TokenService){}
+
+  isLogged = false;
 
   ngOnInit(): void {
     this.getGraficos();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
   public getGraficos():void{
@@ -29,6 +37,7 @@ export class GraficosComponent implements OnInit {
       },
       error:(error:HttpErrorResponse) => {
         alert(error.message);
+        console.log('aca esta el error');
       }
     })
   }

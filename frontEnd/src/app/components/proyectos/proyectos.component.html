@@ -1,11 +1,11 @@
 <div class="card card-mat seccion" id="proyectos">
     <div class="row color-primary-dark">
       <h3 class="col-11 p-3">Proyectos</h3>
-      
-      <button type="button" class="btn btn-primary col-1 text-center float-end" data-bs-toggle="modal" data-bs-target="#addProyectosModal" (click)="onOpenModal('add')"> 
-        <i class="fa-solid fa-plus"></i>
-      </button>
-      
+      <div *ngIf="isLogged">
+        <button type="button" class="btn btn-primary col-1 text-center float-end" data-bs-toggle="modal" data-bs-target="#addProyectosModal" (click)="onOpenModal('add')"> 
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
     </div>
     <div class="main-container" *ngFor="let proyecto of proyectos">
       <div class="row my-2 p-5">
@@ -17,7 +17,7 @@
           <h3>{{proyecto.tituloProy}}</h3>
           <p>{{proyecto.descripcionProy}}</p>
         </div>
-        <div class="col text-center">
+        <div class="col text-center" *ngIf="isLogged">
           <button type="button" (click)="onOpenModal('edit', proyecto)" 
             class="btn-edicion btn btn-primary col-1 tooltips" data-placement="top" 
             data-bs-toggle="modal" data-bs-target="#editProyectosModal" data-original-title="Edit">

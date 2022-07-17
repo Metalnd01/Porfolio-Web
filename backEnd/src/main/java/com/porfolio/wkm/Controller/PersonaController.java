@@ -5,6 +5,7 @@ import com.porfolio.wkm.Interface.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,12 +25,15 @@ public class PersonaController {
         this.ipersonaService = ipersonaService;
     }
     
+    
+    
     @GetMapping("/id/{id}")
     public ResponseEntity<Persona> obtenerPersona(@PathVariable("id") Long id) {
         Persona persona = ipersonaService.findPersona(id);
         return new ResponseEntity<>(persona, HttpStatus.OK);
     }
             
+    @PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin
     @PutMapping("/update")
     public ResponseEntity<Persona> editarPersona(@RequestBody Persona persona) {

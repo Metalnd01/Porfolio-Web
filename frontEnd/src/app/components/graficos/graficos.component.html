@@ -1,7 +1,9 @@
 <div class="row">
-  <button type="button" class="col-1 btn btn-primary text-center float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addGraficosModal">
-    <i class="fa-solid fa-plus"></i>
-  </button>
+  <div *ngIf="isLogged">
+    <button type="button" class="col-1 btn btn-primary text-center float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addGraficosModal">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
   <div class="col-md-1 col-lg-1 m-3"></div>
   <div class="col-sm-12 col-md-3 col-lg-3 text-center" *ngFor="let grafico of graficos">
     <h3>{{grafico.nombreSkill}}</h3>
@@ -18,7 +20,7 @@
         [animationDuration]="1000"
     ></circle-progress>
     
-    <div class="col text-center">
+    <div class="col text-center" *ngIf="isLogged">
       <button (click)="onOpenModal('edit', grafico)" 
         class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
         data-bs-toggle="modal" data-bs-target="#editGraficosModal" data-original-title="Edit">

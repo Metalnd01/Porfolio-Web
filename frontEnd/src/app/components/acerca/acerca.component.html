@@ -10,7 +10,7 @@
       <div class="col-xs-12 col-12 p-4 m-1">
         <p>{{acerca.acercaDe}}</p>
       </div>
-      <div class="col text-center">
+      <div class="col text-center" *ngIf="isLogged">
         <button (click)="onOpenModal('edit', acerca)" 
           class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
           data-bs-toggle="modal" data-bs-target="#editAcercaDeModal" data-original-title="Edit">

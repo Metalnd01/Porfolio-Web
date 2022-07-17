@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,18 +35,21 @@ public class IdiomasController {
         return new ResponseEntity<>(idiomas, HttpStatus.OK);
     }
             
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Idiomas> editarIdiomas(@RequestBody Idiomas idiomas) {
         Idiomas updateIdiomas = iidiomasService.saveIdiomas(idiomas);
         return new ResponseEntity<>(updateIdiomas, HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Idiomas> crearIdiomas(@RequestBody Idiomas idiomas) {
         Idiomas nuevaIdiomas = iidiomasService.saveIdiomas(idiomas);
         return new ResponseEntity<>(nuevaIdiomas, HttpStatus.CREATED);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{idIdioma}")
     public ResponseEntity<?> borrarIdiomas(@PathVariable("idIdioma") Long idIdioma){
         iidiomasService.deleteIdiomas(idIdioma);

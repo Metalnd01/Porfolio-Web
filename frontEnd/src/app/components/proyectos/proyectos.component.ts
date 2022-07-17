@@ -5,6 +5,7 @@ import { proyectos } from 'src/app/model/proyectos.model';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
 import { Modal } from 'bootstrap';
 import { Container } from '@angular/compiler/src/i18n/i18n_ast';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -18,10 +19,17 @@ export class ProyectosComponent implements OnInit {
   public deleteProyectos:proyectos | undefined;
   public testModal:Modal | undefined;
 
-  constructor(private proyectosService: ProyectosService){}
+  constructor(private proyectosService: ProyectosService, private tokenService:TokenService){}
+
+  isLogged = false;
 
   ngOnInit(): void {
     this.getProyectos();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
   public getProyectos():void{

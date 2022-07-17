@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { idiomas } from 'src/app/model/idiomas.model';
 import { IdiomasService } from 'src/app/servicios/idiomas.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-idiomas',
@@ -16,10 +17,17 @@ export class IdiomasComponent implements OnInit {
   public editIdiomas:idiomas | undefined;
   public deleteIdiomas:idiomas | undefined;
 
-  constructor(private idiomasService: IdiomasService){}
+  constructor(private idiomasService: IdiomasService, private tokenService: TokenService){}
+
+  isLogged = false;
 
   ngOnInit(): void {
     this.getIdiomas();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
   public getIdiomas():void{

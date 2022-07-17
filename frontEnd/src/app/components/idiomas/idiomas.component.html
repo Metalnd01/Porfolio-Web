@@ -1,10 +1,11 @@
 <div class="card card-mat seccion">
     <div class="row color-primary-dark">
       <h3 class="col-11 p-3">Idiomas</h3>
-      
-      <button type="button" class="btn btn-primary text-center col-1 float-end" data-bs-toggle="modal" data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
-        <i class="fa-solid fa-plus"></i>
-      </button>
+      <div *ngIf="isLogged">
+        <button type="button" class="btn btn-primary text-center col-1 float-end" data-bs-toggle="modal" data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
     </div>
     <div class="row" *ngFor="let idioma of idiomas">
       <div class="col-2">
@@ -16,7 +17,7 @@
             <p>{{idioma.descripcionIdioma}}</p>
         </ul>
       </div>
-      <div class="col text-center">
+      <div class="col text-center" *ngIf="isLogged">
         <a (click)="onOpenModal('edit', idioma)" 
           class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
           data-bs-toggle="modal" data-bs-target="#editIdiomasModal" data-original-title="Edit">
