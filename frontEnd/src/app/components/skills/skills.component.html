@@ -1,11 +1,11 @@
 <div class="card card-mat seccion">
-    <div class="row color-primary-dark">
-      <h3 class="col-11 p-3">Hard & Soft Skills</h3>
-      
-    </div>
-    <div class="row">
-      <div class="container ">
-          <app-graficos></app-graficos>
-      </div>
+  <div class="row color-primary-dark">
+    <h3 class="col-10 p-3">Hard & Soft Skills</h3>
+    <div class="col-1" *ngIf="isLogged">
+      <button type="button" class="col-1 btn btn-primary text-center float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addGraficosModal">
+        <i class="fa-solid fa-plus"></i>
+      </button>
     </div>
   </div>
+  <app-graficos></app-graficos>
+</div>

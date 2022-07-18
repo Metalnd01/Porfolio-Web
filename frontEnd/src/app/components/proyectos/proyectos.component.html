@@ -1,16 +1,16 @@
-<div class="card card-mat seccion" id="proyectos">
+<div class="card mat-card seccion" id="proyectos">
     <div class="row color-primary-dark">
-      <h3 class="col-11 p-3">Proyectos</h3>
-      <div *ngIf="isLogged">
+      <h3 class="col-10 p-3">Proyectos</h3>
+      <div class="col-1" *ngIf="isLogged">
         <button type="button" class="btn btn-primary col-1 text-center float-end" data-bs-toggle="modal" data-bs-target="#addProyectosModal" (click)="onOpenModal('add')"> 
-          <i class="fa-solid fa-plus"></i>
+          <i class="fa-solid fa-plus"><span class="sr-only"></span></i>
         </button>
       </div>
     </div>
     <div class="main-container" *ngFor="let proyecto of proyectos">
       <div class="row my-2 p-5">
         <div class="col-sm-12 col-md-3 col-lg-3">
-          <a href="#"><img src="{{proyecto.imagenProy}}" alt="Porfolio web" class="img-thumbnail img-fluid"></a>
+          <a href="{{proyecto.urlProy}}" target="_blank"><img src="{{proyecto.imagenProy}}" alt="Sin imagen" class="img-thumbnail img-fluid"></a>
         </div>
         <div class="col-1"></div>
         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -53,6 +53,10 @@
               <label for="imagenProy">Imagen</label>
               <input type="text" ngModel name="imagenProy" class="form-control" id="imagenProy" placeholder="Url de imagen" required>
             </div>
+            <div class="form-group">
+              <label for="urlProy">URL del Proyecto</label>
+              <input type="text" ngModel name="urlProy" class="form-control" id="urlProy" placeholder="Url del Proyecto" required>
+            </div>
             <div class="modal-footer">
               <button type="button" id="add-proyectos-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Guardar</button>
@@ -86,6 +90,10 @@
             <div class="form-group">
               <label for="imagenProy">Imagen</label>
               <input type="text" ngModel="{{editProyectos?.imagenProy}}" name="imagenProy" class="form-control" id="imagenProy" placeholder="Url de imagen" required>
+            </div>
+            <div class="form-group">
+              <label for="urlProy">Url del Proyecto</label>
+              <input type="text" ngModel="{{editProyectos?.urlProy}}" name="urlProy" class="form-control" id="urlProy" placeholder="Url del Proyecto" required>
             </div>
           </form>
         </div>

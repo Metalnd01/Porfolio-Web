@@ -1,36 +1,32 @@
 <div class="row">
-  <div *ngIf="isLogged">
-    <button type="button" class="col-1 btn btn-primary text-center float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addGraficosModal">
-      <i class="fa-solid fa-plus"></i>
-    </button>
-  </div>
-  <div class="col-md-1 col-lg-1 m-3"></div>
-  <div class="col-sm-12 col-md-3 col-lg-3 text-center" *ngFor="let grafico of graficos">
-    <h3>{{grafico.nombreSkill}}</h3>
-    <circle-progress
-        [percent]="grafico.porcentajeSkill"
-        [radius]="100"
-        [outerStrokeWidth]="10"
-        [innerStrokeWidth]="2"
-        [outerStrokeColor]="'#8c7b75'"
-        [innerStrokeColor]="'#bcaaa4'"
-        [showSubtitle]="false"
-        [responsive]="false"
-        [animation]="true"
-        [animationDuration]="1000"
-    ></circle-progress>
-    
+  <div class="col-sm-12 col-md-4 col-lg-4 text-center" *ngFor="let grafico of graficos">
+    <div class="m-2 p-2" id="graficos">  
+      <h3>{{grafico.nombreSkill}}</h3>
+      <circle-progress
+          [percent]="grafico.porcentajeSkill"
+          [radius]="100"
+          [outerStrokeWidth]="10"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#8c7b75'"
+          [innerStrokeColor]="'#bcaaa4'"
+          [showSubtitle]="false"
+          [responsive]="false"
+          [animation]="true"
+          [animationDuration]="1000"
+      ></circle-progress>
+    </div>
     <div class="col text-center" *ngIf="isLogged">
       <button (click)="onOpenModal('edit', grafico)" 
-        class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
+        class="col-2 btn-edicion btn btn-primary tooltips" data-placement="top" 
         data-bs-toggle="modal" data-bs-target="#editGraficosModal" data-original-title="Edit">
         <i class="fa-solid fa-pencil"></i></button>
       <button (click)="onOpenModal('delete', grafico)" 
-        class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
+        class="col-2 p-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
         data-bs-toggle="modal" data-bs-target="#deleteGraficosModal" data-original-title="Delete">
         <i class="fa-solid fa-circle-xmark"></i></button>
-    </div>
+    <div class="col-md-1 col-lg-1 m-3"></div>
   </div>
+  
 
    <!--Boton Agregar-->
   <div class="modal fade" id="addGraficosModal" tabindex="-1" role="dialog" aria-labelledby="addGraficosModalLabel"

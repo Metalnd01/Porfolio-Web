@@ -1,31 +1,32 @@
-<div class="card card-mat seccion">
+<div class="card mat-card seccion">
     <div class="row color-primary-dark">
-      <h3 class="col-11 p-3">Idiomas</h3>
-      <div *ngIf="isLogged">
-        <button type="button" class="btn btn-primary text-center col-1 float-end" data-bs-toggle="modal" data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
+      <h3 class="col-10 p-3">Idiomas</h3>
+      <div class="col-1" *ngIf="isLogged">
+        <button type="button" class="btn btn-primary text-center col-2 float-end" data-bs-toggle="modal" data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
           <i class="fa-solid fa-plus"></i>
         </button>
       </div>
     </div>
-    <div class="row" *ngFor="let idioma of idiomas">
-      <div class="col-2">
-        <img src="{{idioma.imagenIdioma}}" alt="">
-      </div>
-      <div class="col-8">
-        <ul>
-            <li><h3>{{idioma.nombreIdioma}}</h3> - <h5>{{idioma.entreAniosIdioma}}</h5></li> 
-            <p>{{idioma.descripcionIdioma}}</p>
-        </ul>
-      </div>
-      <div class="col text-center" *ngIf="isLogged">
-        <a (click)="onOpenModal('edit', idioma)" 
-          class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
-          data-bs-toggle="modal" data-bs-target="#editIdiomasModal" data-original-title="Edit">
-          <i class="fa-solid fa-pencil"></i></a>
-        <a (click)="onOpenModal('delete', idioma)" 
-          class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
-          data-bs-toggle="modal" data-bs-target="#deleteIdiomasModal" data-original-title="Delete">
-          <i class="fa-solid fa-circle-xmark"></i></a>
+    <div class="main-container" *ngFor="let idioma of idiomas">
+      <div class="row my-2 p-5">
+        <div class="col-sm-12 col-md-3 col-lg-3">
+          <img src="{{idioma.imagenIdioma}}" alt="" class="img-thumbnail img-fluid">
+        </div>
+        <div class="col-1"></div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+              <h3>{{idioma.nombreIdioma}}</h3><h4>    </h4><h5>{{idioma.entreAniosIdioma}}</h5>
+              <p>{{idioma.descripcionIdioma}}</p>
+        </div>
+        <div class="col text-center py-1" *ngIf="isLogged">
+          <a (click)="onOpenModal('edit', idioma)" 
+            class="col-2 btn-edicion btn btn-primary tooltips" data-placement="top" 
+            data-bs-toggle="modal" data-bs-target="#editIdiomasModal" data-original-title="Edit">
+            <i class="fa-solid fa-pencil"></i></a>
+          <a (click)="onOpenModal('delete', idioma)" 
+            class="col-2 btn-edicion btn btn-secondary tooltips" data-placement="top" 
+            data-bs-toggle="modal" data-bs-target="#deleteIdiomasModal" data-original-title="Delete">
+            <i class="fa-solid fa-circle-xmark"></i></a>
+        </div>
       </div>
     </div>
   </div>

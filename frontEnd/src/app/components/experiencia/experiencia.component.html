@@ -1,31 +1,32 @@
 <div class="card mat-card seccion">
     <div class="row color-primary-dark">
-      <h3 class="col-11 p-3">Experiencia Laboral</h3>
-      <div *ngIf="isLogged">
-        <button type="button" class="col-1 btn btn-primary text-center float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addExperienciaModal">
+      <h3 class="col-10 p-3">Experiencia Laboral</h3>
+      <div class="col-1" *ngIf="isLogged">
+        <button type="button" class="col-1 btn btn-primary text-center flex-inline" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addExperienciaModal">
           <i class="fa-solid fa-plus"></i>
         </button>
-    </div>
-    </div>
-    <div class="row" *ngFor="let exp of experiencia">
-      <div class="col-2">
-        <img src="{{exp.imagenExp}}" alt="">
       </div>
-      <div class="col-8">
-        <ul>
-            <li><h3>{{exp.tituloExp}}</h3> - <h5>{{exp.entreAniosExp}}</h5></li> 
+    </div>
+    <div class="main-container" *ngFor="let exp of experiencia">
+      <div class="row my-2 p-5">
+        <div class="col-sm-12 col-md-3 col-lg-3">
+          <img src="{{exp.imagenExp}}" alt="" id="imagenExp" class="img-thumbnail img-fluid">
+        </div>
+        <div class="col-1"></div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <h3>{{exp.tituloExp}}</h3><h4>    </h4><h5>{{exp.entreAniosExp}}</h5>
             <p>{{exp.descripcionExp}}</p>
-        </ul>
-      </div>
-      <div class="col text-center" *ngIf="isLogged">
-        <button (click)="onOpenModal('edit', exp)" 
-          class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
-          data-bs-toggle="modal" data-bs-target="#editExperienciaModal" data-original-title="Edit">
-          <i class="fa-solid fa-pencil"></i></button>
-        <button (click)="onOpenModal('delete', exp)" 
-          class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
-          data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal" data-original-title="Delete">
-          <i class="fa-solid fa-circle-xmark"></i></button>
+        </div>
+        <div class="col text-center" *ngIf="isLogged">
+          <button (click)="onOpenModal('edit', exp)" 
+            class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
+            data-bs-toggle="modal" data-bs-target="#editExperienciaModal" data-original-title="Edit">
+            <i class="fa-solid fa-pencil"></i></button>
+          <button (click)="onOpenModal('delete', exp)" 
+            class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
+            data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal" data-original-title="Delete">
+            <i class="fa-solid fa-circle-xmark"></i></button>
+        </div>
       </div>
     </div>
 </div>

@@ -4,5 +4,6 @@ export interface proyectos {
     imagenProy: String;
     tituloProy: String;
     descripcionProy: String;
+    urlProy: String;
 
 }

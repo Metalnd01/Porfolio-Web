@@ -17,6 +17,7 @@ li{
     color:white; 
     size: 10px;
     text-align: center;
+    text-decoration: none;
 }
 
 .iconos_redes:hover {

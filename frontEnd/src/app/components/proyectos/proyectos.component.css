@@ -13,3 +13,9 @@ span {
 .img-thumbnail {
   box-shadow: 10px 10px 25px #8c7b75;
 }
+
+.main-container {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
