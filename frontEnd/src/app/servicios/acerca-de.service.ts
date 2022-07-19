@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AcercaDeService {
 
-  private apiServerUrl = "https://porfolio-web-2a8dc.web.app";
+  private apiServerUrl = "https://porfolio-web-backend.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
