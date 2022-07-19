@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class IdiomasService {
 
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = "https://porfolio-web-2a8dc.web.app";
 
   constructor(private http: HttpClient) { }
 

@@ -10,7 +10,7 @@ import { persona } from '../model/persona.model';
 })
 export class PersonaService {
 
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = "https://porfolio-web-2a8dc.web.app";
  
   constructor(private http: HttpClient) { }
 

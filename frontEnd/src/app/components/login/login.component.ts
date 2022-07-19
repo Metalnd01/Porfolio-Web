@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
       this.isLogged = true;
       this.isLoggingFail = false;
       this.roles = this.tokenService.getAuthorities();
+      console.log("trae el token correctamente")
     }
   }
 

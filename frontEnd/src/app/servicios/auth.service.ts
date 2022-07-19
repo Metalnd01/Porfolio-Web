@@ -9,15 +9,15 @@ import { NuevoUsuario } from '../model/nuevo-usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  authURL = 'http://localhost:8080/';
+  authURL = 'https://porfolio-web-2a8dc.web.app';
 
   constructor(private httpClient: HttpClient) { }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(this.authURL + 'auth' + 'nuevo', nuevoUsuario);
+    return this.httpClient.post<any>(`${this.authURL}/auth/nuevo`, nuevoUsuario);
   }
 
   public login(loginUsuario: LoginUsuario): Observable<JwtDto>{
-    return this.httpClient.post<JwtDto>(this.authURL + 'login', loginUsuario);
+    return this.httpClient.post<JwtDto>(`${this.authURL}/login`, loginUsuario);
   }
 }
