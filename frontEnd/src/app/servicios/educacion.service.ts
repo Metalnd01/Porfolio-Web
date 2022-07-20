@@ -11,21 +11,21 @@ export class EducacionService {
 
   private apiServerUrl = "https://porfolio-web-backend.herokuapp.com";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    public getEducacion(): Observable<educacion[]> {
-      return this.http.get<educacion[]>(`${this.apiServerUrl}/educacion/all`);
-    }
+  public getEducacion(): Observable<educacion[]> {
+    return this.http.get<educacion[]>(`${this.apiServerUrl}/educacion/all`);
+  }
 
-    public addEducacion(educacion: educacion): Observable<educacion>{
-      return this.http.post<educacion>(`${this.apiServerUrl}/educacion/add`, educacion);
-    }
+  public addEducacion(educacion: educacion): Observable<educacion> {
+    return this.http.post<educacion>(`${this.apiServerUrl}/educacion/add`, educacion);
+  }
 
-    public updateEducacion(educacion: educacion): Observable<educacion>{
-      return this.http.put<educacion>(`${this.apiServerUrl}/educacion/update`, educacion);
-    }
+  public updateEducacion(educacion: educacion): Observable<educacion> {
+    return this.http.put<educacion>(`${this.apiServerUrl}/educacion/update`, educacion);
+  }
 
-    public deleteEducacion(IdEdu: number): Observable<void>{
-      return this.http.delete<void>(`${this.apiServerUrl}/educacion/delete/${IdEdu}`);
-    }
+  public deleteEducacion(IdEdu: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/educacion/delete/${IdEdu}`);
+  }
 }

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { acercaDe } from '../model/acercaDe.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

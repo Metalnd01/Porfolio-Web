@@ -1,120 +1,122 @@
 <div class="row">
+  <div class="col-1" *ngIf="isLogged">
+    <button type="button" class="col-1 btn btn-primary text-center float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addGraficosModal">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
   <div class="col-sm-12 col-md-4 col-lg-4 text-center" *ngFor="let grafico of graficos">
-    <div class="m-2 p-2" id="graficos">  
+    <div class="m-2 p-2" id="graficos">
       <h3>{{grafico.nombreSkill}}</h3>
-      <circle-progress
-          [percent]="grafico.porcentajeSkill"
-          [radius]="100"
-          [outerStrokeWidth]="10"
-          [innerStrokeWidth]="2"
-          [outerStrokeColor]="'#8c7b75'"
-          [innerStrokeColor]="'#bcaaa4'"
-          [showSubtitle]="false"
-          [responsive]="false"
-          [animation]="true"
-          [animationDuration]="1000"
-      ></circle-progress>
+      <circle-progress [percent]="grafico.porcentajeSkill" [radius]="100" [outerStrokeWidth]="10" [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#8c7b75'" [innerStrokeColor]="'#bcaaa4'" [showSubtitle]="false" [responsive]="false"
+        [animation]="true" [animationDuration]="1000"></circle-progress>
     </div>
     <div class="col text-center" *ngIf="isLogged">
-      <button (click)="onOpenModal('edit', grafico)" 
-        class="col-2 btn-edicion btn btn-primary tooltips" data-placement="top" 
-        data-bs-toggle="modal" data-bs-target="#editGraficosModal" data-original-title="Edit">
+      <button (click)="onOpenModal('edit', grafico)" class="col-2 btn-edicion btn btn-primary tooltips"
+        data-placement="top" data-bs-toggle="modal" data-bs-target="#editGraficosModal" data-original-title="Edit">
         <i class="fa-solid fa-pencil"></i></button>
-      <button (click)="onOpenModal('delete', grafico)" 
-        class="col-2 p-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
-        data-bs-toggle="modal" data-bs-target="#deleteGraficosModal" data-original-title="Delete">
+      <button (click)="onOpenModal('delete', grafico)" class="col-2 p-1 btn-edicion btn btn-secondary tooltips"
+        data-placement="top" data-bs-toggle="modal" data-bs-target="#deleteGraficosModal" data-original-title="Delete">
         <i class="fa-solid fa-circle-xmark"></i></button>
-    <div class="col-md-1 col-lg-1 m-3"></div>
-  </div>
-  
+      <div class="col-md-1 col-lg-1 m-3"></div>
+    </div>
 
-   <!--Boton Agregar-->
-  <div class="modal fade" id="addGraficosModal" tabindex="-1" role="dialog" aria-labelledby="addGraficosModalLabel"
-              aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addGraficosModalLabel">Agregar Skill</h5>
-        </div>
-        <div class="modal-body">
-          <form #addForm="ngForm" (ngSubmit)="onAddGraficos(addForm)">
-            <div class="form-group">
-              <label for="nombreSkill">Skill</label>
-              <input type="text" ngModel name="nombreSkill" class="form-control" id="nombreSkill" placeholder="nombreSkill" required>
-            </div>
-            <div class="form-group">
-              <label for="porcentajeSkill">Porcentaje</label>
-              <input type="text" ngModel name="porcentajeSkill" class="form-control" id="porcentajeSkill" placeholder="Porcentaje alcanzado" required>
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="add-graficos-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-            </div>
-          </form>
+    <!--Boton Agregar-->
+    <div class="modal fade" id="addGraficosModal" tabindex="-1" role="dialog" aria-labelledby="addGraficosModalLabel"
+      aria-hidden="true">
+
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addGraficosModalLabel">Agregar Skill</h5>
+          </div>
+          <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddGraficos(addForm)">
+              <div class="form-group">
+                <label for="nombreSkill">Skill</label>
+                <input type="text" ngModel name="nombreSkill" class="form-control" id="nombreSkill"
+                  placeholder="nombreSkill" required>
+              </div>
+              <div class="form-group">
+                <label for="porcentajeSkill">Porcentaje</label>
+                <input type="text" ngModel name="porcentajeSkill" class="form-control" id="porcentajeSkill"
+                  placeholder="Porcentaje alcanzado" required>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="add-graficos-form" class="btn btn-secondary"
+                  data-bs-dismiss="modal">Cerrar</button>
+                <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary"
+                  data-bs-dismiss="modal">Guardar</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--Boton Modificar-->
-  <div class="modal fade" id="editGraficosModal" tabindex="-1" role="dialog" aria-labelledby="editGraficosModalLabel"
-              aria-hidden="true">
+    <!--Boton Modificar-->
+    <div class="modal fade" id="editGraficosModal" tabindex="-1" role="dialog" aria-labelledby="editGraficosModalLabel"
+      aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editGraficosModalLabel">Editar Skill {{editGraficos?.nombreSkill}}</h5>
-        </div>
-        <div class="modal-body">
-          <form #editForm="ngForm" >
-            <div class="form-group">
-              <label for="nombreSkill">Título</label>
-              <input type="text" ngModel = "{{editGraficos?.nombreSkill}}" name="nombreSkill" class="form-control" id="nombreSkill" placeholder="Skill" required>
-              <input type="hidden" ngModel="{{editGraficos?.idSkill}}" name="idSkill" class="form-control" id="idSkill" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="porcentajeSkill">Porcentaje</label>
-              <input type="text" ngModel="{{editGraficos?.porcentajeSkill}}" name="porcentajeSkill" class="form-control" id="porcentajeSkill" placeholder="" required>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button (click)="onUpdateGraficos(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editGraficosModalLabel">Editar Skill {{editGraficos?.nombreSkill}}</h5>
+          </div>
+          <div class="modal-body">
+            <form #editForm="ngForm">
+              <div class="form-group">
+                <label for="nombreSkill">Título</label>
+                <input type="text" ngModel="{{editGraficos?.nombreSkill}}" name="nombreSkill" class="form-control"
+                  id="nombreSkill" placeholder="Skill" required>
+                <input type="hidden" ngModel="{{editGraficos?.idSkill}}" name="idSkill" class="form-control"
+                  id="idSkill" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="porcentajeSkill">Porcentaje</label>
+                <input type="text" ngModel="{{editGraficos?.porcentajeSkill}}" name="porcentajeSkill"
+                  class="form-control" id="porcentajeSkill" placeholder="" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button (click)="onUpdateGraficos(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Guardar
+              Cambios</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--Borrar entrada-->
-  <div class="modal fade" id="deleteGraficosModal" tabindex="-1" role="dialog" aria-labelledby="deleteGraficosModalLabel"
-              aria-hidden="true">
+    <!--Borrar entrada-->
+    <div class="modal fade" id="deleteGraficosModal" tabindex="-1" role="dialog"
+      aria-labelledby="deleteGraficosModalLabel" aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteGraficosModalLabel">Borrar Skill {{deleteGraficos?.nombreSkill}}</h5>
-        </div>
-        <div class="modal-body">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteGraficosModalLabel">Borrar Skill {{deleteGraficos?.nombreSkill}}</h5>
+          </div>
+          <div class="modal-body">
             <p>
               ¿Seguro quiere borrar la entrada {{deleteGraficos?.nombreSkill}}?
             </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button (click)="onDeleteGraficos(deleteGraficos!.idSkill)" data-bs-dismiss="modal" class="btn btn-danger">Borrar</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            <button (click)="onDeleteGraficos(deleteGraficos!.idSkill)" data-bs-dismiss="modal"
+              class="btn btn-danger">Borrar</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div *ngIf="graficos?.length == 0" class="col-lg-6">
-    <div class="col-6 text-center alert alert-info" role="alert">
-      <h3>Sin datos</h3>
-      <p>No hay datos cargados...</p>
-    </div>
+<div *ngIf="graficos?.length == 0" class="col-lg-6">
+  <div class="col-6 text-center alert alert-info" role="alert">
+    <h3>Sin datos</h3>
+    <p>No hay datos cargados...</p>
   </div>
-  
-
 </div>

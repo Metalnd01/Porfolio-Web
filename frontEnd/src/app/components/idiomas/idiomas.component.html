@@ -1,143 +1,156 @@
 <div class="card mat-card seccion">
-    <div class="row color-primary-dark">
-      <h3 class="col-10 p-3">Idiomas</h3>
-      <div class="col-1" *ngIf="isLogged">
-        <button type="button" class="btn btn-primary text-center col-2 float-end" data-bs-toggle="modal" data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
-          <i class="fa-solid fa-plus"></i>
-        </button>
-      </div>
+  <div class="row color-primary-dark">
+    <h3 class="col-10 p-3">Idiomas</h3>
+    <div class="col-1" *ngIf="isLogged">
+      <button type="button" class="btn btn-primary text-center col-2 float-end" data-bs-toggle="modal"
+        data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
+        <i class="fa-solid fa-plus"></i>
+      </button>
     </div>
-    <div class="main-container" *ngFor="let idioma of idiomas">
-      <div class="row my-2 p-5">
-        <div class="col-sm-12 col-md-3 col-lg-3">
-          <img src="{{idioma.imagenIdioma}}" alt="" class="img-thumbnail img-fluid">
-        </div>
-        <div class="col-1"></div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-              <h3>{{idioma.nombreIdioma}}</h3><h4>    </h4><h5>{{idioma.entreAniosIdioma}}</h5>
-              <p>{{idioma.descripcionIdioma}}</p>
-        </div>
-        <div class="col text-center py-1" *ngIf="isLogged">
-          <a (click)="onOpenModal('edit', idioma)" 
-            class="col-2 btn-edicion btn btn-primary tooltips" data-placement="top" 
-            data-bs-toggle="modal" data-bs-target="#editIdiomasModal" data-original-title="Edit">
-            <i class="fa-solid fa-pencil"></i></a>
-          <a (click)="onOpenModal('delete', idioma)" 
-            class="col-2 btn-edicion btn btn-secondary tooltips" data-placement="top" 
-            data-bs-toggle="modal" data-bs-target="#deleteIdiomasModal" data-original-title="Delete">
-            <i class="fa-solid fa-circle-xmark"></i></a>
-        </div>
+  </div>
+  <div class="main-container" *ngFor="let idioma of idiomas">
+    <div class="row my-2 p-5">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <img src="{{idioma.imagenIdioma}}" alt="" class="img-thumbnail img-fluid">
+      </div>
+      <div class="col-1"></div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <h3>{{idioma.nombreIdioma}}</h3>
+        <h4> </h4>
+        <h5>{{idioma.entreAniosIdioma}}</h5>
+        <p>{{idioma.descripcionIdioma}}</p>
+      </div>
+      <div class="col text-center py-1" *ngIf="isLogged">
+        <a (click)="onOpenModal('edit', idioma)" class="col-2 btn-edicion btn btn-primary tooltips" data-placement="top"
+          data-bs-toggle="modal" data-bs-target="#editIdiomasModal" data-original-title="Edit">
+          <i class="fa-solid fa-pencil"></i></a>
+        <a (click)="onOpenModal('delete', idioma)" class="col-2 btn-edicion btn btn-secondary tooltips"
+          data-placement="top" data-bs-toggle="modal" data-bs-target="#deleteIdiomasModal" data-original-title="Delete">
+          <i class="fa-solid fa-circle-xmark"></i></a>
       </div>
     </div>
   </div>
+</div>
 
- <!--Boton Agregar-->
-  <div class="modal fade" id="addIdiomasModal" tabindex="-1" role="dialog" aria-labelledby="addIdiomasModalLabel"
-              aria-hidden="true">
+<!--Boton Agregar-->
+<div class="modal fade" id="addIdiomasModal" tabindex="-1" role="dialog" aria-labelledby="addIdiomasModalLabel"
+  aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addIdiomasModalLabel">Agregar Idiomas</h5>
-        </div>
-        <div class="modal-body">
-          <form #addForm="ngForm" (ngSubmit)="onAddIdiomas(addForm)">
-            <div class="form-group">
-              <label for="nombreIdioma">Título</label>
-              <input type="text" ngModel name="nombreIdioma" class="form-control" id="nombreIdioma" placeholder="Título" required>
-            </div>
-            <div class="form-group">
-              <label for="descripcionIdioma">Descripción</label>
-              <input type="text" ngModel name="descripcionIdioma" class="form-control" id="descripcionIdioma" placeholder="Breve descripción" required>
-            </div>
-            <div class="form-group">
-              <label for="imagenIdioma">Imagen</label>
-              <input type="text" ngModel name="imagenIdioma" class="form-control" id="imagenIdioma" placeholder="Url de imagen" required>
-            </div>
-            <div class="form-group">
-              <label for="entreAniosIdioma">Años</label>
-              <input type="text" ngModel name="entreAniosIdioma" class="form-control" id="entreAniosIdioma" placeholder="Entre años" required>
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="add-idioma-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-            </div>
-          </form>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addIdiomasModalLabel">Agregar Idiomas</h5>
       </div>
-
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddIdiomas(addForm)">
+          <div class="form-group">
+            <label for="nombreIdioma">Título</label>
+            <input type="text" ngModel name="nombreIdioma" class="form-control" id="nombreIdioma" placeholder="Título"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="descripcionIdioma">Descripción</label>
+            <input type="text" ngModel name="descripcionIdioma" class="form-control" id="descripcionIdioma"
+              placeholder="Breve descripción" required>
+          </div>
+          <div class="form-group">
+            <label for="imagenIdioma">Imagen</label>
+            <input type="text" ngModel name="imagenIdioma" class="form-control" id="imagenIdioma"
+              placeholder="Url de imagen" required>
+          </div>
+          <div class="form-group">
+            <label for="entreAniosIdioma">Años</label>
+            <input type="text" ngModel name="entreAniosIdioma" class="form-control" id="entreAniosIdioma"
+              placeholder="Entre años" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="add-idioma-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary"
+              data-bs-dismiss="modal">Guardar</button>
+          </div>
+        </form>
+      </div>
     </div>
+
+  </div>
+</div>
+
+<!--Boton Modificar-->
+<div class="modal fade" id="editIdiomasModal" tabindex="-1" role="dialog" aria-labelledby="editIdiomasModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editIdiomasModalLabel">Editar Proyecto {{editIdiomas?.nombreIdioma}}</h5>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="name">Título</label>
+            <input type="text" ngModel="{{editIdiomas?.nombreIdioma}}" name="nombreIdioma" class="form-control"
+              id="nombreIdioma" placeholder="Título" required>
+            <input type="hidden" ngModel="{{editIdiomas?.idIdioma}}" name="idIdioma" class="form-control" id="idIdioma"
+              placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="descripcionProy">Descripción</label>
+            <input type="text" ngModel="{{editIdiomas?.descripcionIdioma}}" name="descripcionIdioma"
+              class="form-control" id="descripcionIdioma" placeholder="Breve descripción" required>
+          </div>
+          <div class="form-group">
+            <label for="imagenProy">Imagen</label>
+            <input type="text" ngModel="{{editIdiomas?.imagenIdioma}}" name="imagenIdioma" class="form-control"
+              id="imagenIdioma" placeholder="Url de imagen" required>
+          </div>
+          <div class="form-group">
+            <label for="entreAniosIdioma">Años</label>
+            <input type="text" ngModel="{{editIdiomas?.entreAniosIdioma}}" name="entreAniosIdioma" class="form-control"
+              id="entreAniosIdioma" placeholder="Entre años" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button (click)="onUpdateIdiomas(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Guardar
+          Cambios</button>
+      </div>
+    </div>
+
   </div>
 
-  <!--Boton Modificar-->
-  <div class="modal fade" id="editIdiomasModal" tabindex="-1" role="dialog" aria-labelledby="editIdiomasModalLabel"
-              aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editIdiomasModalLabel">Editar Proyecto {{editIdiomas?.nombreIdioma}}</h5>
-        </div>
-        <div class="modal-body">
-          <form #editForm="ngForm" >
-            <div class="form-group">
-              <label for="name">Título</label>
-              <input type="text" ngModel = "{{editIdiomas?.nombreIdioma}}" name="nombreIdioma" class="form-control" id="nombreIdioma" placeholder="Título" required>
-              <input type="hidden" ngModel="{{editIdiomas?.idIdioma}}" name="idIdioma" class="form-control" id="idIdioma" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="descripcionProy">Descripción</label>
-              <input type="text" ngModel="{{editIdiomas?.descripcionIdioma}}" name="descripcionIdioma" class="form-control" id="descripcionIdioma" placeholder="Breve descripción" required>
-            </div>
-            <div class="form-group">
-              <label for="imagenProy">Imagen</label>
-              <input type="text" ngModel="{{editIdiomas?.imagenIdioma}}" name="imagenIdioma" class="form-control" id="imagenIdioma" placeholder="Url de imagen" required>
-            </div>
-            <div class="form-group">
-              <label for="entreAniosIdioma">Años</label>
-              <input type="text" ngModel="{{editIdiomas?.entreAniosIdioma}}" name="entreAniosIdioma" class="form-control" id="entreAniosIdioma" placeholder="Entre años" required>
-            </div>
-          </form>
-        </div>
+</div>
+
+<!--Borrar entrada-->
+<div class="modal fade" id="deleteIdiomasModal" tabindex="-1" role="dialog" aria-labelledby="deleteIdiomasModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteIdiomasModalLabel">Borrar Idioma {{deleteIdiomas?.nombreIdioma}}</h5>
+      </div>
+      <div class="modal-body">
+        <p>
+          ¿Seguro quiere borrar la entrada? {{deleteIdiomas?.nombreIdioma}}
+        </p>
         <div class="modal-footer">
-          <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button (click)="onUpdateIdiomas(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Guardar Cambios</button>
+          <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button (click)="onDeleteIdiomas(deleteIdiomas!.idIdioma)" data-bs-dismiss="modal"
+            class="btn btn-danger">Borrar</button>
         </div>
       </div>
-
     </div>
-
 
   </div>
 
-  <!--Borrar entrada-->
-  <div class="modal fade" id="deleteIdiomasModal" tabindex="-1" role="dialog" aria-labelledby="deleteIdiomasModalLabel"
-              aria-hidden="true">
 
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteIdiomasModalLabel">Borrar Idioma {{deleteIdiomas?.nombreIdioma}}</h5>
-        </div>
-        <div class="modal-body">
-            <p>
-              ¿Seguro quiere borrar la entrada? {{deleteIdiomas?.nombreIdioma}}
-            </p>
-            <div class="modal-footer">
-              <button type="button" id="" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-              <button (click)="onDeleteIdiomas(deleteIdiomas!.idIdioma)" data-bs-dismiss="modal" class="btn btn-danger">Borrar</button>
-            </div>
-        </div>
-      </div>
+</div>
 
-    </div>
-
-
+<div *ngIf="idiomas?.length == 0" class="col-lg-6">
+  <div class="col-6 text-center alert alert-info" role="alert">
+    <h3>Sin datos</h3>
+    <p>No hay datos cargados...</p>
   </div>
-
-  <div *ngIf="idiomas?.length == 0" class="col-lg-6">
-    <div class="col-6 text-center alert alert-info" role="alert">
-      <h3>Sin datos</h3>
-      <p>No hay datos cargados...</p>
-    </div>
-  </div>
+</div>
