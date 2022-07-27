@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { proyectos } from '../model/proyectos.model';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

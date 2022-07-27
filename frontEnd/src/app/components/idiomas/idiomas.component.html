@@ -1,7 +1,7 @@
 <div class="card mat-card seccion">
   <div class="row color-primary-dark">
     <h3 class="col-10 p-3">Idiomas</h3>
-    <div class="col-1" *ngIf="isLogged">
+    <div class="col-2 py-1 justify-content-end" *ngIf="isLogged">
       <button type="button" class="btn btn-primary text-center col-2 float-end" data-bs-toggle="modal"
         data-bs-target="#addIdiomasModal" (click)="onOpenModal('add')">
         <i class="fa-solid fa-plus"></i>

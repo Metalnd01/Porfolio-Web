@@ -14,6 +14,7 @@ span {
   
   .img-thumbnail {
     box-shadow: 10px 10px 25px #8c7b75;
+    margin-bottom: 3em;
   }
   
   .main-container {

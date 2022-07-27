@@ -1,8 +1,8 @@
 <div class="card mat-card seccion">
     <div class="row color-primary-dark">
       <h3 class="col-10 p-3">Experiencia Laboral</h3>
-      <div class="col-1" *ngIf="isLogged">
-        <button type="button" class="col-1 btn btn-primary text-center flex-inline" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addExperienciaModal">
+      <div class="col-2 py-1 justify-content-end" *ngIf="isLogged">
+        <button type="button" class="col-2 btn btn-primary text-center flex-inline float-end" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addExperienciaModal">
           <i class="fa-solid fa-plus"></i>
         </button>
       </div>
@@ -17,13 +17,13 @@
             <h3>{{exp.tituloExp}}</h3><h4>    </h4><h5>{{exp.entreAniosExp}}</h5>
             <p>{{exp.descripcionExp}}</p>
         </div>
-        <div class="col text-center" *ngIf="isLogged">
+        <div class="col text-center py-1" *ngIf="isLogged">
           <button (click)="onOpenModal('edit', exp)" 
-            class="col-1 btn-edicion btn btn-primary tooltips" data-placement="top" 
+            class="col-2 btn-edicion btn btn-primary tooltips" data-placement="top" 
             data-bs-toggle="modal" data-bs-target="#editExperienciaModal" data-original-title="Edit">
             <i class="fa-solid fa-pencil"></i></button>
           <button (click)="onOpenModal('delete', exp)" 
-            class="col-1 btn-edicion btn btn-secondary tooltips" data-placement="top" 
+            class="col-2 btn-edicion btn btn-secondary tooltips" data-placement="top" 
             data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal" data-original-title="Delete">
             <i class="fa-solid fa-circle-xmark"></i></button>
         </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
               <label for="entreAniosExp">Entre años</label>
-              <input type="text" ngModel name="entreAniosExp" class="form-control" id="entreAniosExp" placeholder="Entre años" required>
+              <input type="text" ngModel name="entreAniosExp" class="form-control" id="entreAniosExp" placeholder="Entre años">
             </div>
             <div class="modal-footer">
               <button type="button" id="add-experiencia-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -95,7 +95,7 @@
             </div>
             <div class="form-group">
               <label for="entreAniosExp">Entre años</label>
-              <input type="text" ngModel="{{editExperiencia?.entreAniosExp}}" name="entreAniosExp" class="form-control" id="entreAniosExp" placeholder="Entre años" required>
+              <input type="text" ngModel="{{editExperiencia?.entreAniosExp}}" name="entreAniosExp" class="form-control" id="entreAniosExp" placeholder="Entre años">
             </div>
           </form>
         </div>

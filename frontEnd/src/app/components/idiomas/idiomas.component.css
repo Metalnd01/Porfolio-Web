@@ -1,23 +1,25 @@
-h3, h5 {
-    display: inline;
+h3,
+h5 {
+  display: inline;
 }
 
 span {
-    text-align: center;
-  }
-  
+  text-align: center;
+}
+
 .container {
-width: 100%;
-display: inline-block;
-text-align: center;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
 }
 
 .img-thumbnail {
-box-shadow: 10px 10px 25px #8c7b75;
+  box-shadow: 10px 10px 25px #8c7b75;
+  margin-bottom: 3em;
 }
 
 .main-container {
-width: 100%;
-display: inline-block;
-text-align: center;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
 }
