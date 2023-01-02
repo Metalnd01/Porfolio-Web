@@ -21,11 +21,11 @@ public class WkmApplication {
         public CorsFilter corsFilter(){
             CorsConfiguration corsConfiguration = new CorsConfiguration();
             corsConfiguration.setAllowCredentials(true);
-            corsConfiguration.setAllowedOrigins(Arrays.asList("https://porfolio-web-2a8dc.web.app"));
-            corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Typer", 
+            corsConfiguration.setAllowedOrigins(Arrays.asList("https://porfolio-web-2a8dc.web.app", "https://porfolio-web-2a8dc.web.app/login"));
+            corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
                     "Accept", "Authorization", "Origin, Accept", "X-Requested-With", 
                     "Access-Control-Request-Method", "Access-Control-Request-Headers"));
-            corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Conten-Type", "Accept", "Authorization",
+            corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
                    "Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
             corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
             UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
@@ -38,9 +38,11 @@ public class WkmApplication {
             return new WebMvcConfigurer() {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
-                    registry.addMapping("/**").allowedOrigins("https://porfolio-web-2a8dc.web.app","https://porfolio-web-2a8dc.web.app/login").allowedMethods("*").allowedHeaders("*");
+                    registry.addMapping("/**").allowedOrigins("https://porfolio-web-2a8dc.web.app", "https://porfolio-web-2a8dc.web.app/login", "/**").allowedMethods("*").allowedHeaders("*");
                 }
             };
         }
+
+
 
 }
