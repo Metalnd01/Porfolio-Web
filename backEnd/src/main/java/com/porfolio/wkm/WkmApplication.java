@@ -17,11 +17,11 @@ public class WkmApplication {
 		SpringApplication.run(WkmApplication.class, args);
 	}
         
-        /*@Bean
+        @Bean
         public CorsFilter corsFilter(){
             CorsConfiguration corsConfiguration = new CorsConfiguration();
             corsConfiguration.setAllowCredentials(true);
-            corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+            corsConfiguration.setAllowedOrigins(Arrays.asList("https://porfolio-web-2a8dc.web.app"));
             corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Typer", 
                     "Accept", "Authorization", "Origin, Accept", "X-Requested-With", 
                     "Access-Control-Request-Method", "Access-Control-Request-Headers"));
@@ -31,13 +31,14 @@ public class WkmApplication {
             UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
             urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
             return new CorsFilter(urlBasedCorsConfigurationSource);
-        }*/
+        }
+
         @Bean
-        public WebMvcConfigurer corsConfigurer(){
-            return new WebMvcConfigurer(){
+        public WebMvcConfigurer corsConfigurer() {
+            return new WebMvcConfigurer() {
                 @Override
-                public void addCorsMappings(CorsRegistry registry){
-                    registry.addMapping("/**").allowedOrigins("/**").allowedMethods("*");
+                public void addCorsMappings(CorsRegistry registry) {
+                    registry.addMapping("/**").allowedOrigins("https://porfolio-web-2a8dc.web.app","https://porfolio-web-2a8dc.web.app/login").allowedMethods("*").allowedHeaders("*");
                 }
             };
         }

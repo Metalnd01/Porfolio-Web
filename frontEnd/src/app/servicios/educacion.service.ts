@@ -8,7 +8,7 @@ import { educacion } from '../model/educacion.model';
 })
 export class EducacionService {
 
-  private apiServerUrl = "https://porfolio-web-backend.herokuapp.com";
+  private apiServerUrl = "https://backend-portfolio-wkm.fly.dev";
 
   constructor(private http: HttpClient) { }
 

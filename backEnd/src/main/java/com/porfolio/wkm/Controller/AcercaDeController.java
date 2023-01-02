@@ -27,7 +27,7 @@ public class AcercaDeController {
     public AcercaDeController(IAcercaDeService iacercaDeService) {
         this.iacercaDeService = iacercaDeService;
     }
-    
+    @CrossOrigin(origins = "https://porfolio-web-2a8dc.web.app")
     @GetMapping("/all")
     public ResponseEntity<List<AcercaDe>> obtenerAcercaDe() {
         List<AcercaDe> acercaDe = iacercaDeService.getAcercaDe();

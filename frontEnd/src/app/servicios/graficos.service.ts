@@ -8,8 +8,8 @@ import { graficos } from '../model/graficos.model';
 })
 export class GraficosService {
 
-  private apiServerUrl = "https://porfolio-web-backend.herokuapp.com";
-
+  private apiServerUrl = 'https://backend-portfolio-wkm.fly.dev';
+  
   constructor(private http: HttpClient) { }
 
   public getGraficos(): Observable<graficos[]> {

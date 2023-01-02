@@ -8,7 +8,7 @@ import { experiencia } from '../model/experiencia.model';
 })
 export class ExperienciaService {
 
-  private apiServerUrl = "https://porfolio-web-backend.herokuapp.com";
+  private apiServerUrl = 'https://backend-portfolio-wkm.fly.dev';
 
   constructor(private http: HttpClient) { }
 
