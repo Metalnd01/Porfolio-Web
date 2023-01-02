@@ -78,7 +78,7 @@ public class AuthController {
     }
 
     @CrossOrigin(origins = "https://porfolio-web-2a8dc.web.app", allowedHeaders = "*")
-    @PutMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, 
             BindingResult bindingResult){
         

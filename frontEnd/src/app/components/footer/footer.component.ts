@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   //mybutton = document.getElementById("toTop");
-
+  date = new Date();
+  year = this.date.getFullYear();
   //window.onscroll = function() {scrollFunction()};
 
   constructor() { }

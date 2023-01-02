@@ -38,7 +38,7 @@ public class WkmApplication {
             return new WebMvcConfigurer() {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
-                    registry.addMapping("/**").allowedOrigins("https://porfolio-web-2a8dc.web.app", "https://porfolio-web-2a8dc.web.app/login", "/**").allowedMethods("*").allowedHeaders("*");
+                    registry.addMapping("/**").allowedOrigins("https://porfolio-web-2a8dc.web.app", "https://porfolio-web-2a8dc.web.app/login").allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS").allowedHeaders("*");
                 }
             };
         }
